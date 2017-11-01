@@ -59,7 +59,9 @@ fieldset {
     padding: 0.35em 0.75em 0.625em;
     border: 2px solid #000;
 }
-
+.conteudo-slider{
+    position: relative;
+}
 .imagem-slider img{
     position: absolute;
     left: 45%;
@@ -106,6 +108,7 @@ fieldset {
     position:relative;
     border: 3px solid #fff;
     text-align: center;
+    height: 300px;
 }
 .single_post img{
     max-height: 100%;
@@ -173,6 +176,17 @@ footer .copyright{
     line-height:36px;
     color:#fff;
 }
+
+.imagem-destacada{
+    width: 350px;
+    height: 350px;
+}
+
+.conteudo-pagina{
+    position: relative;
+}
+
+
 @media only screen and (max-width: 768px) {
     .descricao-post p{
         padding: 10px;

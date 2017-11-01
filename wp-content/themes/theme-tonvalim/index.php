@@ -46,35 +46,24 @@
         <div class="titulos-de-contexto ">
             <h1>ÚLTIMAS NOTÍCIAS</h1>
         </div>
+		
+		
+			<?php 
+				$args = array('post_type'=>'post', 'showposts'=>3);
+				$my_posts = get_posts( $args );
+				if($my_posts) : foreach($my_posts as $post) : setup_postdata( $post );
+			 ?>
 
-        <div class=blog">
-            <div id="post" class="col-md-4 col-sm-6 col-xs-12">
-                <div class="single_post">
-					<?php
-					$image = get_field( 'image' );
-					$size = 'full'; // (thumbnail, medium, large, full or custom size)
-
-					if ( $image ) {
-
-						echo wp_get_attachment_image( $image, $size );
-					}
-					?>
-                    <img src="<?php bloginfo( 'template_directory' ); ?>/assets/img/grupo.png"  />
-                    <div class="descricao-post">
-                        <p>Descrição do post</p>
-                    </div>
-                </div>
-            </div>
 
             <div id="post"  class="col-md-4 col-sm-6 col-xs-12">
                 <div class="single_post">
-                    <img src="<?php bloginfo( 'template_directory' ); ?>/assets/img/grupo.png" alt="Logo empresa arteco" />
+					<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(false, array('class'=>'img-responsive')); ?></a>
                     <div class="descricao-post">
-                        <p>Descrição do post</p>
+                        <p><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
                     </div>
                 </div>
             </div>
-            <div id="post" class="col-md-4 col-sm-6 col-xs-12">
+<!--            <div id="post" class="col-md-4 col-sm-6 col-xs-12">
                 <div class="single_post">
                     <img src="<?php bloginfo( 'template_directory' ); ?>/assets/img/grupo.png" alt="Logo empresa cenoura frita" />
                     <div class="descricao-post">
@@ -105,7 +94,14 @@
                         <p>Descrição do post</p>
                     </div>
                 </div>
-            </div>
+            </div>-->
+		
+		<?php
+		    	endforeach;
+		    	endif;
+	     	?>
+	     	<div class="clear"></div>
+
         </div>
     </section><!--  o grupo conceito -->
 

@@ -39,40 +39,39 @@ function wp_responsivo_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'wp_responsivo_scripts' );
 
-/* * ************************************
+/**************************************
  * Registro Custom Post type Slider
- * ************************************ */
-add_action( 'init', 'type_post_slider' );
-
-function type_post_slider() {
-	$labels = array(
-		'name' => _x( 'Slider', 'post type general name' ),
-		'singular_name' => _x( 'Slider', 'post type singular name' ),
-		'add_new' => _x( 'Adicionar slider', 'slider' ),
-		'add_new_item' => __( 'Adicionar slider' ),
-		'edit_item' => __( 'Editar slider' ),
-		'new_item' => __( 'Novo slider' ),
-		'view_item' => __( 'Ver slider' ),
-		'search_items' => __( 'Procurar slider' ),
-		'not_found' => __( 'Nada encontrado' ),
-		'not_found_in_trash' => __( 'Nada encontrado na lixeira' ),
-		'parent_item_colon' => ''
-	);
-	$args = array(
-		'labels' => $labels,
-		'public' => true,
-		'publicly_queryable' => true,
-		'show_ui' => true,
-		'query_var' => true,
-		'rewrite' => true,
-		'has_archive' => true,
-		'menu_icon' => 'dashicons-media-code',
-		'capability_type' => 'post',
-		'hierarchical' => false,
-		'menu_position' => 6,
-		'supports' => array( 'title', 'thumbnail' ),
-	);
-	register_post_type( 'slider', $args );
+ **************************************/
+add_action('init', 'slider_registrer');
+function slider_registrer(){
+     $labels = array(
+        'name' => _x('Slider', 'post type general name'),
+        'singular_name' => _x('Slider', 'post type singular name'),
+        'add_new' => _x('Adicionar slider', 'slider'),
+        'add_new_item' => __('Adicionar slider'),
+        'edit_item' => __('Editar slider'),
+        'new_item' => __('Novo slider'),
+        'view_item' => __('Ver slider'),
+        'search_items' => __('Procurar slider'),
+        'not_found' =>  __('Nada encontrado'),
+        'not_found_in_trash' => __('Nada encontrado no lixo'),
+        'parent_item_colon' => ''
+    );
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'publicly_queryable' => true,
+        'show_ui' => true,
+        'query_var' => true,
+        'rewrite' => true,
+        'has_archive' => true,
+        'menu_icon' => 'dashicons-media-code',
+        'capability_type' => 'post',
+        'hierarchical' => false,
+        'menu_position' => 6,
+        'supports' => array('title','thumbnail', 'editor','editor'),
+      );
+    register_post_type('slider',$args);
 }
 
 
