@@ -1,0 +1,214 @@
+/*
+
+Theme Name: WP Ton Valim
+Theme URI: http://www.agenciaalca.com/
+Description: Coach Ton Valim</a>.
+Author: Cristiane - Agência Alca
+Author URI: http://www.agenciaalca.com/
+Version: 1.0
+Tags: responsive, blog, bootstrap
+
+
+*/
+
+
+
+
+
+.navbar-custom img{
+    padding: 7px 0;
+}
+.navbar-custom {
+    background-color: white;
+    color: #000099;
+    margin: 0;
+    font-weight: bold;
+    padding: 20px;
+
+}
+.navbar-custom .navbar-nav > li >a{
+    color: #000099;
+    font-size: 20px;
+}
+
+.navbar-custom .navbar-nav> li>a:hover,
+.navbar-custom .navbar-nav>.active>a,
+.navbar-custom .navbar-nav>.active>a:focus, 
+.navbar-custom .navbar-nav>.active>a:hover{
+    background: transparent;
+    border-bottom: 3px solid #322f2f;
+    color: #000099;
+    padding-bottom: 3px;
+}
+
+.carousel-slider{
+    background-color: #000099;
+    padding: 40px ;
+    color: white;
+    text-align: center;
+}
+legend{
+    border: none;
+    color: white;
+    width: 60%;
+    font-size: 1.8em;
+}
+fieldset { 
+    display: block;
+    margin: 0 5px;
+    padding: 0.35em 0.75em 0.625em;
+    border: 2px solid #000;
+}
+
+.imagem-slider img{
+    position: absolute;
+    left: 45%;
+    top: 15px;
+    width: 600px;
+
+}
+
+.carousel-control.right,
+.carousel-control.left{
+    background-image: none;
+}
+.carousel-control:hover,
+.carousel-control {
+    width: 5%;
+    color: black;
+
+}
+.borda{
+    border: 3px solid #322f2f;
+    padding: 20px;
+}
+.clear{
+    clear: both;
+}
+
+.blog{
+    padding: 0 0 30px 0;
+}
+#blog{
+    margin: 30px 0;
+}
+#blog .titulos-de-contexto h1{
+    text-align: center;
+    color: #101010;
+    font-size: 30px;
+    text-decoration: underline;
+}
+#post{
+    padding: 30px 10px;
+}
+
+.single_post{
+    position:relative;
+    border: 3px solid #fff;
+    text-align: center;
+}
+.single_post img{
+    max-height: 100%;
+    width: 100%;
+}
+
+
+.descricao-post {
+    background: #000099;
+    position: absolute;
+    left: 5%;
+    bottom: -25px;
+    width: 90%;
+    height: 15%;
+    text-align: center;
+    margin: 0 auto;
+    color: white;
+}
+.descricao-post p{
+    padding: 17px;
+    margin: 0;
+}
+.contato{
+    margin-top:40px;
+    padding: 60px 0 40px;
+    background-color: #000099;
+}
+
+.contato .titulos-de-contexto h1{
+    text-align: center;
+    color: white;
+    padding-bottom: 30px;
+    font-size: 30px;
+}
+.contato .form-control{
+    background-color: #292d7a;
+    color: white;
+    border: none;
+}
+.contato .btn-default{
+    background-color: black;
+    color: white;
+}
+.contato .informacoes-contato p {
+    color: white;
+    text-align: left;
+}
+.contato textarea{
+    max-height: 83px;
+}
+
+/* footer*/
+footer{
+    text-align: center;
+    bottom:0;
+    width:100%;
+    background:#000099;
+}
+footer .copyright{
+    position:relative;
+    font-weight:300;
+    margin:0 auto;
+    padding:5px 0 15px;
+    font-size:14px;
+    line-height:36px;
+    color:#fff;
+}
+@media only screen and (max-width: 768px) {
+    .descricao-post p{
+        padding: 10px;
+    }
+    
+    legend{
+        font-size: 1.2em;
+        width: 100px;
+    }
+    
+    .carousel-slider{
+        background-color: rgba(0,0,153, 0.62);
+    }
+    
+    .carousel-inner{
+        z-index: 999999;
+    }
+    .imagem-slider img{
+        position: absolute;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+        opacity: 0.3;
+    }
+    .contato .titulos-de-contexto h1{
+        font-size: 25px;
+    }
+    .informacoes-contato{
+         padding-top: 20px;
+         padding-left: 8px;
+         
+    }
+    .informacoes-contato p{
+       
+        
+    }
+
+}
