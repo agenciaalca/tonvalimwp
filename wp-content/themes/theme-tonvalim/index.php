@@ -3,41 +3,79 @@
 
 <header>
 
-	<div id="slider" class="slider">
-		<div id="myCarousel" class="carousel carousel-slider" data-ride="carousel">
+	<?php
+		if ( have_rows( 'slider', 'option' ) ):
+	?>
+		<div id="slider" class="slider">
+			<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+				<div class="carousel-inner background-header" role="listbox">
 
-			<!-- Wrapper for slides -->
-			<div  id="carousel-slider" class="carousel-inner ">
-				<div class="container">
-					<div class="item active">
-						<div class="conteudo-slider col-md-4 offset-8">
-							<fieldset>
-								<legend>PALESTRAS</legend> 
-								<p>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de</p>
-							</fieldset>
-							<br>
-							<p>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de</p>
-							<br>
-							<button class="btn btn-default">Saiba Mais</button>
+				<?php
+					$cont = 0;
+					while ( have_rows( 'slider', 'option' ) ) : the_row();
+						$titulo = get_sub_field( 'titulo', 'option' );
+						$descricao1 = get_sub_field( 'descricao-1', 'option' );
+						$descricao2 = get_sub_field( 'descricao-2', 'option' );
+						$linkDoBotao = get_sub_field( 'link_do_botao', 'option' );
+						$botao = get_sub_field( 'botao', 'option' );
+						$imagemDestacada = get_sub_field( 'imagem_destacada', 'option' );
+						$size = 'thumbnail';
+						$thumb = $imagemDestacada['sizes'][$size];
+
+						$cont++;
+						
+						// $class = ( $cont == 1 ) ? 'active' : null ;
+
+						if ( $cont == 1 ) {
+							$class = 'active';
+						} else {
+							$class = null;
+						}
+						?>
+
+						<div class="item <?php echo $class; ?>">
+							<div class="container">
+								<div class="temas col-md-4">
+									<fieldset>
+										<legend><?php echo $titulo; ?></legend> 
+										<p><?php echo $descricao1; ?></p>
+									</fieldset>
+									<br>
+									<p><?php echo $descricao2; ?></p>
+									<br>
+									<a href="<?php echo $linkDoBotao; ?>" class="btn btn-default"><?php echo $botao; ?></a>
+									<div class="imagem-slider ">
+
+										<?php if ( !empty( $imagemDestacada ) ): ?>
+											<img class="img-responsive" src="<?php echo $thumb; ?>">
+										<?php else : ?>	
+											<img class="img-responsive" src="">
+										<?php endif; ?>
+									</div>
+								</div>
+							</div>
 						</div>
+						<?php
+					endwhile;
+					?>
+					<a class = "left carousel-control" href = "#carousel-example-generic" role = "button" data-slide = "prev">
+						<span class = "glyphicon glyphicon-chevron-left" aria-hidden = "true"></span>
+						<span class = "sr-only">Previous</span>
+					</a>
+					<a class = "right carousel-control" href = "#carousel-example-generic" role = "button" data-slide = "next">
+						<span class = "glyphicon glyphicon-chevron-right" aria-hidden = "true"></span>
+						<span class = "sr-only">Next</span>
+					</a>
+					<?php
+				else :
 
-					</div>
-				</div>
+				endif;
+				?>
 			</div>
-			<div class="imagem-slider">
-				<img src="<?php bloginfo( 'template_directory' ); ?>/assets/img/grupo.png" width="100%" height="330px">
-			</div>
-			<!-- Controls -->
-			<a class="left carousel-control" href="#home-carousel" role="button" data-slide="prev">
-				<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-				<span class="sr-only">Previous</span>
-			</a>
-			<a class="right carousel-control" href="#home-carousel" role="button" data-slide="next">
-				<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-				<span class="sr-only">Next</span>
-			</a>
+
 		</div>
 	</div>
+
 </header>
 
 <div class="container">
@@ -46,70 +84,34 @@
         <div class="titulos-de-contexto ">
             <h1>ÚLTIMAS NOTÍCIAS</h1>
         </div>
-		
-		
-			<?php 
-				$args = array('post_type'=>'post', 'showposts'=>3);
-				$my_posts = get_posts( $args );
-				if($my_posts) : foreach($my_posts as $post) : setup_postdata( $post );
-			 ?>
 
-
-            <div id="post"  class="col-md-4 col-sm-6 col-xs-12">
-                <div class="single_post">
-					<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(false, array('class'=>'img-responsive')); ?></a>
-                    <div class="descricao-post">
-                        <p><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
-                    </div>
-                </div>
-            </div>
-<!--            <div id="post" class="col-md-4 col-sm-6 col-xs-12">
-                <div class="single_post">
-                    <img src="<?php bloginfo( 'template_directory' ); ?>/assets/img/grupo.png" alt="Logo empresa cenoura frita" />
-                    <div class="descricao-post">
-                        <p>Descrição do post</p>
-                    </div>
-                </div>
-            </div>
-            <div id="post" class="col-md-4 col-sm-6 col-xs-12">
-                <div class="single_post">
-                    <img src="<?php bloginfo( 'template_directory' ); ?>/assets/img/grupo.png" alt="Logo grupo-conceito" />
-                    <div class="descricao-post">
-                        <p>Descrição do post</p>
-                    </div>
-                </div>
-            </div>
-            <div id="post" class="col-md-4 col-sm-6 col-xs-12">
-                <div class="single_post">
-                    <img src="<?php bloginfo( 'template_directory' ); ?>/assets/img/grupo.png" alt="Logo tom valin" />
-                    <div class="descricao-post">
-                        <p>Descrição do post</p>
-                    </div>
-                </div>
-            </div>
-            <div id="post" class="col-md-4 col-sm-6 col-xs-12">
-                <div class="single_post">
-                    <img src="<?php bloginfo( 'template_directory' ); ?>/assets/img/grupo.png" alt="Logo pizza na pedra" />
-                    <div class="descricao-post">
-                        <p>Descrição do post</p>
-                    </div>
-                </div>
-            </div>-->
-		
 		<?php
-		    	endforeach;
-		    	endif;
-	     	?>
-	     	<div class="clear"></div>
+		$args = array( 'post_type' => 'post', 'showposts' => 3 );
+		$my_posts = get_posts( $args );
+		if ( $my_posts ) : foreach ( $my_posts as $post ) : setup_postdata( $post );
+				?>
 
-        </div>
-    </section><!--  o grupo conceito -->
+				<div id="post"  class="col-md-4 col-sm-6 col-xs-12">
+					<div class="single_post">
+						<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( false, array( 'class' => 'img-responsive' ) ); ?></a>
+						<div class="descricao-post">
+							<p><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
+						</div>
+					</div>
+				</div>
 
+				<?php
+			endforeach;
+		endif;
+		?>
+		<div class="clear"></div>
 
 </div>
+</section><!-- posts -->
+
 
 <!--  contato  -->
-<section id="contato" class="contato content">
+<section id="contato" class="contato">
 
     <div class="container">
         <div class="row">
@@ -162,9 +164,9 @@
             <div class="col-md-4">
                 <div class="informacoes-contato">
                     <div class="informacoes-contato">
-                        <p><i class="fa fa-envelope" aria-hidden="true"></i> tonvalim@tonvalim.com</p>
-                        <p><i class="fa fa-whatsapp" aria-hidden="true"></i> (062) 3636-0111</p>
-                        <p><i class="fa fa-globe" aria-hidden="true"></i> Rua 88-B, nº 73, Setor Sul, Goiânia - GO, 74085-030</p>
+                        <p><i class="fa fa-envelope" aria-hidden="true"></i> <?php the_field( 'email', 'option' ); ?></p>
+                        <p><i class="fa fa-whatsapp" aria-hidden="true"></i> <?php the_field( 'telefone', 'option' ); ?></p>
+                        <p><i class="fa fa-globe" aria-hidden="true"></i> <?php the_field( 'endereco', 'option' ); ?></p>
 
 
                     </div>

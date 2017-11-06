@@ -1,37 +1,111 @@
 <?php get_header(); ?>
 
-<div class="header-internas">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-6 col-lg-6">
-				<h2><?php the_title(); ?></h2>
-			</div>
+<div class="container-fluid">
+	<div class="header-page">
+		<div class="container">
+				<h1 ><?php the_title(); ?></h1>
+			
 		</div>
 	</div>
 </div>
+
+
 <div class="container">
 	<div class="row">
-		<div class="col-md-8">
+		<div class=" content col-md-12">
 			<?php
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
+			if ( have_posts() ) :
+				while ( have_posts() ) : the_post();
+					?>
 
-				get_template_part( 'template-parts/post/content', get_post_format() );
+					<div class="single-thumbnail">
+						<?php the_post_thumbnail(); ?>
+					</div>
+
+					<div class="info-post">
+						<p>
+							<strong>Postado por:</strong> <?php the_author(); ?> <strong>em</strong> <?php the_date(); ?>
+						</p>
+					</div>
+
+					<div class="content-post">
+						<?php the_content(); ?>
+						<a class="btn btn-primary text-right" href="#">Voltar </a>
+					</div>
+
+
+<!--					<div class="slug">
+						<div class="row">
+							<div class="col-md-3">Categoria:</div>
+							<div class="col-md-3">Palavras-Chave:</div>
+						</div>
+						<div class="row">
+							<div class="col-md-3"><?php the_category(); ?></div>
+							<div class="col-md-3"><?php the_category(); ?></div>
+						</div>
+					</div>-->
+
+					<?php
+				endwhile;
+			else:
 				?>
-				<?php
-				the_post_navigation( array(
-					'prev_text' => '<span class="screen-reader-text">' . __( 'Previous Post', 'twentyseventeen' ) . '</span><span aria-hidden="true" class="nav-subtitle">' . __( 'Previous', 'twentyseventeen' ) . '</span> <span class="nav-title"><span class="nav-title-icon-wrapper">' . twentyseventeen_get_svg( array( 'icon' => 'arrow-left' ) ) . '</span>%title</span>',
-					'next_text' => '<span class="screen-reader-text">' . __( 'Next Post', 'twentyseventeen' ) . '</span><span aria-hidden="true" class="nav-subtitle">' . __( 'Next', 'twentyseventeen' ) . '</span> <span class="nav-title">%title<span class="nav-title-icon-wrapper">' . twentyseventeen_get_svg( array( 'icon' => 'arrow-right' ) ) . '</span></span>',
-				) );
+				<div class="artigo">
+					<h2>Nada Encontrado</h2>
+					<p>Erro 404</p>
+					<p>Lamentamos mas não foram encontrados artigos.</p>
+				</div>            
+			<?php endif; ?>  
 
-			endwhile; // End of the loop.
-			?>
+			<div id="navegacao">
+				<?php
+				$prevPost = get_previous_post( true );
+				if ( $prevPost ) {
+					$args = array(
+						'posts_per_page' => 1,
+						'include' => $prevPost->ID
+					);
+					$prevPost = get_posts( $args );
+					foreach ( $prevPost as $post ) {
+						setup_postdata( $post );
+						?>
+						<div class="col-md-2">
+							<a class="previous" href="<?php the_permalink(); ?>">&laquo; Post Anterior </a>
+						</div>
+						<?php
+						wp_reset_postdata();
+					} //end foreach
+				} // end if
+
+				$nextPost = get_next_post( true );
+				if ( $nextPost ) {
+					$args = array(
+						'posts_per_page' => 1,
+						'include' => $nextPost->ID
+					);
+					$nextPost = get_posts( $args );
+					foreach ( $nextPost as $post ) {
+						setup_postdata( $post );
+						?>
+						<div class="col-md-2 col-md-offset-8 text-right">
+							<a class="next" href="<?php the_permalink(); ?>">Próximo Post &raquo;</a>
+						</div>
+						<?php
+						wp_reset_postdata();
+					} //end foreach
+				} // end if
+				?>
+			</div>
 
 
 
 		</div>
+		<!--		Sidebar Area
+				<div class="col-md-4">
+		<?php get_sidebar(); ?>	
+				</div>
+				Sidebar Area -->
 	</div>
 </div>
 
 
-<?php get_footer();?>
+<?php get_footer(); ?>
