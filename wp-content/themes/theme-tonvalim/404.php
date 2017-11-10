@@ -1,13 +1,9 @@
 <?php get_header(); ?>
-    <div id="conteudo">
-        <div id="artigos">
-            <div class="artigo">
-                <h1>Erro 404 - Não Encontrado</h1>
-                <p>Lamentamos, mas o que você procura não foi encontrado.</p>
-				<a href="#" class="btn btn-info">Voltar para página principal</a>
-            </div>
-        </div>
-         
-        <?php get_sidebar(); ?>
-    </div>
+
+<div class="container">
+	<h1>404 - Nada Encontrado!</h1>
+	<p>Lamentamos, mas o que você procura não foi encontrado.</p>
+	<a href="http://tonvalim.com.br" class="btn btn-custom">Voltar para página principal</a>
+</div>
+
 <?php get_footer(); ?>

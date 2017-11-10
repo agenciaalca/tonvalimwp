@@ -1,12 +1,21 @@
 <?php
 
 /* * ************************************
- *  THEME SUPORT
+ *  THEME SUPORT A THUMBNAILS
  * ************************************ */
 function add_suport_theme() {
 	add_theme_support( 'post-thumbnails' );
 }
 add_action( 'after_setup_theme', 'add_suport_theme' );
+
+/* * ************************************
+ *  DEFINIR TAMANHO DE THUMBNAILS
+ * ************************************ */
+//function add_suport_theme() {
+//	add_theme_support( 'post-thumbnails' );
+//}
+//add_action( 'after_setup_theme', 'add_suport_theme' );
+
 
 
 /* * ************************************
@@ -94,5 +103,6 @@ add_filter( 'init', 'my_custom_sizes' );
  * ************************************ */
 
 function my_custom_sizes( $sizes ) {
-	add_image_size( 'thumbnail', 1000, 800, true );
+	add_image_size( 'thumbnail', 600, 300, true );
+	add_image_size( 'thumbnail', 600, 300, true );
 }

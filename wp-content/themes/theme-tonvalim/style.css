@@ -12,6 +12,12 @@ Tags: responsive, blog, bootstrap
 .container-fluid {
     padding: 0 ;
 }
+.btn-custom,
+.btn-custom .active,
+.btn-custom:hover{
+    background-color: #0000ff;
+    color: white;
+}
 
 /* NAVBAR */
 .navbar-custom img{
@@ -23,6 +29,7 @@ Tags: responsive, blog, bootstrap
     margin: 0;
     font-weight: bold;
     padding: 20px;
+    border: transparent;
 }
 .navbar-custom .navbar-nav > li > a,
 .navbar-custom .navbar-nav> .active > a{
@@ -36,63 +43,52 @@ Tags: responsive, blog, bootstrap
     border-bottom: 3px solid #322f2f;
     color: #000099;
     padding-bottom: 3px;
-    
+
 }/* FIM NAVBAR */
 
 
+/* SLIDER PRINCIPAL */
 .carousel-inner{
     overflow: visible;
 }
-
 .background-header{
     background-color: #000099;
     padding: 40px ;
     color: white;
     text-align: center;
 }
-
 legend{
     border: none;
     color: white;
     width: 60%;
     font-size: 1.8em;
 }
-
 fieldset { 
     display: block;
     margin: 0 5px;
     padding: 0.35em 0.75em 0.625em;
     border: 2px solid #000;
 }
-
-.imagem-slider img{
+.imagem-slider img {
     position: absolute;
     left: 130%;
     top: 0;
-    width: 100%;
-    height: 300px;
 }
-
-
 .carousel-control.right,
 .carousel-control.left{
     background-image: none;
 }
-
 .carousel-control:hover,
 .carousel-control {
     width: 5%;
     color: black;
 }
-
 .borda{
     border: 3px solid #322f2f;
     padding: 20px;
 }
-.clear{
-    clear: both;
-}
 
+/* BLOG */
 .blog{
     padding: 0 0 30px 0;
 }
@@ -108,7 +104,6 @@ fieldset {
 #post{
     padding: 30px 10px;
 }
-
 .single_post{
     position:relative;
     border: 3px solid #fff;
@@ -119,8 +114,6 @@ fieldset {
     max-height: 100%;
     width: 100%;
 }
-
-
 .descricao-post {
     background: #000099;
     position: absolute;
@@ -139,7 +132,7 @@ fieldset {
 .descricao-post a{
     color: white;
     text-transform: uppercase;
-}
+}/* FIM BLOG */
 
 
 /* CONTATO */
@@ -170,7 +163,7 @@ fieldset {
 }
 .contato textarea{
     max-height: 83px;
-    
+
 }/* FIM CONTATO */
 
 
@@ -178,10 +171,11 @@ fieldset {
 /* FOOTER */
 footer{
     text-align: center;
-    bottom:0;
+    bottom:0!important;
     width:100%;
     background:#000099;
 }
+
 footer .copyright{
     position:relative;
     font-weight:300;
@@ -189,34 +183,36 @@ footer .copyright{
     font-size:14px;
     line-height:36px;
     color:#fff;
-    
+
 }/* FIM FOOTER */
 
+/* ARQUIVO EXTERNO COMUM - POST E SINGLE */
 
-.imagem-destacada{
-    width: 350px;
-    height: 350px;
-}
-
-.conteudo-pagina{
-    position: relative;
-}
-.temas{
-    margin-left: 20px;
-}
-.item{
-    position: relative;
+.content{    
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 .header-page{
-    
+    position: relative;
     background-color: #000099;
-    padding: 40px ;
+    height: 300px;
     color: white;
 }
-.info-post{
+.titulo{
+    padding-top: 100px;
+}
+.single-thumbnail img {
+    position: absolute;
+    left: 10%;
+    top:  24%;
+    width: 400px;
+    height: 300px;
+}
+
+.info-post p{
     color: #5d6567;
     line-height: 5px;
-    padding: 15px;
+    padding-top: 35px;
 }
 .content-page,
 .content-post{
@@ -225,27 +221,16 @@ footer .copyright{
     letter-spacing: 1px;
     line-height: 20px;
 }
-
 .content{    
     margin-bottom: 50px;
+}
 
-}
-.content-page,
-.header-page{
-    padding-top: 30px;
-    margin-bottom: 60px;
-    padding-left: 30px;
-    padding-right: 30px;
-}
-.single-thumbnail img {
-	width: 100%;
-	max-height: 500px;
-}
+
 
 
 /* CSS RESPONSIVO */
 @media only screen and (max-width: 768px) {
-    
+
     .descricao-post p{
         padding: 10px;
     }
@@ -257,11 +242,11 @@ footer .copyright{
     .background-header{
         background-color: rgba(0,0,153, 0.62);
     }
-
+    .single-thumbnail img,
     .imagem-slider img{
         position: absolute;
         left: 0;
-        height: 100%;
+        height: 50%;
         width: 100%;
         z-index: 1;
         opacity: 0.3;
@@ -273,5 +258,5 @@ footer .copyright{
         padding-top: 20px;
         padding-left: 8px;
     }
-    
+
 }

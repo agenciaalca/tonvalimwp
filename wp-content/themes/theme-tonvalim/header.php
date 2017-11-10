@@ -52,10 +52,7 @@ error_reporting( E_ALL );
 						'walker' => new wp_bootstrap_navwalker() )
 					);
 					?>
-
-
 				</div>
 			</nav>
 		</header>
 		<!-- /.navbar -->
-

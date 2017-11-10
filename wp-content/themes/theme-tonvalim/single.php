@@ -2,25 +2,25 @@
 
 <div class="container-fluid">
 	<div class="header-page">
-		<div class="container">
-				<h1 ><?php the_title(); ?></h1>
-			
+		<div class="container col-md-5 col-md-offset-6 ">
+			<h1 class="titulo"><?php the_title(); ?></h1>
 		</div>
+	</div>
+	<div class="single-thumbnail">
+		<?php the_post_thumbnail(); ?>
 	</div>
 </div>
 
 
 <div class="container">
 	<div class="row">
-		<div class=" content col-md-12">
+		<div class=" content col-md-12 col-sm-12 col-xs-12">
 			<?php
 			if ( have_posts() ) :
 				while ( have_posts() ) : the_post();
 					?>
 
-					<div class="single-thumbnail">
-						<?php the_post_thumbnail(); ?>
-					</div>
+
 
 					<div class="info-post">
 						<p>
@@ -30,20 +30,22 @@
 
 					<div class="content-post">
 						<?php the_content(); ?>
-						<a class="btn btn-primary text-right" href="#">Voltar </a>
+						<div class="col-md-2 col-md-offset-10 text-right">
+						<a class="btn btn-primary text-right" href="http://tonvalim.com.br">Voltar </a></div>
+						
 					</div>
 
 
-<!--					<div class="slug">
-						<div class="row">
-							<div class="col-md-3">Categoria:</div>
-							<div class="col-md-3">Palavras-Chave:</div>
-						</div>
-						<div class="row">
-							<div class="col-md-3"><?php the_category(); ?></div>
-							<div class="col-md-3"><?php the_category(); ?></div>
-						</div>
-					</div>-->
+					<!--					<div class="slug">
+											<div class="row">
+												<div class="col-md-3">Categoria:</div>
+												<div class="col-md-3">Palavras-Chave:</div>
+											</div>
+											<div class="row">
+												<div class="col-md-3"><?php the_category(); ?></div>
+												<div class="col-md-3"><?php the_category(); ?></div>
+											</div>
+										</div>-->
 
 					<?php
 				endwhile;
@@ -86,7 +88,7 @@
 					foreach ( $nextPost as $post ) {
 						setup_postdata( $post );
 						?>
-						<div class="col-md-2 col-md-offset-8 text-right">
+						<div class="col-md-2 col-md-offset-10 text-right">
 							<a class="next" href="<?php the_permalink(); ?>">Próximo Post &raquo;</a>
 						</div>
 						<?php

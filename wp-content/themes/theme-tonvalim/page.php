@@ -2,14 +2,18 @@
 
 <div class="container-fluid">
 	<div class="header-page">
-		<div class="row">
-			<div class="container">
-				<h1 ><?php the_title(); ?></h1>
-			</div>
+		<div class="container col-md-5 col-md-offset-6 ">
+			<h1 class="titulo"><?php the_title(); ?></h1>
 		</div>
 	</div>
+	<div class="single-thumbnail">
+		<?php the_post_thumbnail(); ?>
+	</div>
 </div>
-<div class="container">
+
+
+
+<div class="container content">
 	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
 			<div class="content-page">
@@ -19,13 +23,14 @@
 				</div>
 			</div>
 		<?php endwhile;
-	else: ?>
+	else:
+		?>
 		<div class="artigo">
 			<h2>Nada Encontrado</h2>
 			<p>Erro 404</p>
 			<p>Lamentamos mas não foram encontrados artigos.</p>
 		</div>            
-	<?php endif; ?>
+<?php endif; ?>
 
 </div>
 

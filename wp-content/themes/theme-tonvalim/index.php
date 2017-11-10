@@ -4,15 +4,16 @@
 <header>
 
 	<?php
-		if ( have_rows( 'slider', 'option' ) ):
-	?>
+	if ( have_rows( 'slider', 'option' ) ):
+		?>
 		<div id="slider" class="slider">
 			<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 				<div class="carousel-inner background-header" role="listbox">
 
-				<?php
+					<?php
 					$cont = 0;
 					while ( have_rows( 'slider', 'option' ) ) : the_row();
+
 						$titulo = get_sub_field( 'titulo', 'option' );
 						$descricao1 = get_sub_field( 'descricao-1', 'option' );
 						$descricao2 = get_sub_field( 'descricao-2', 'option' );
@@ -23,39 +24,34 @@
 						$thumb = $imagemDestacada['sizes'][$size];
 
 						$cont++;
-						
-						// $class = ( $cont == 1 ) ? 'active' : null ;
 
-						if ( $cont == 1 ) {
-							$class = 'active';
-						} else {
-							$class = null;
-						}
-						?>
+						$class = ( $cont == 1 ) ? 'active' : null;
 
-						<div class="item <?php echo $class; ?>">
-							<div class="container">
-								<div class="temas col-md-4">
-									<fieldset>
-										<legend><?php echo $titulo; ?></legend> 
-										<p><?php echo $descricao1; ?></p>
-									</fieldset>
-									<br>
-									<p><?php echo $descricao2; ?></p>
-									<br>
-									<a href="<?php echo $linkDoBotao; ?>" class="btn btn-default"><?php echo $botao; ?></a>
-									<div class="imagem-slider ">
-
-										<?php if ( !empty( $imagemDestacada ) ): ?>
-											<img class="img-responsive" src="<?php echo $thumb; ?>">
-										<?php else : ?>	
-											<img class="img-responsive" src="">
-										<?php endif; ?>
+						if ( (!empty( $titulo )) && (!empty( $descricao1 )) && (!empty( $descricao2 )) && (!empty( $linkDoBotao )) && (!empty( $botao )) && (!empty( $imagemDestacada )) && (!empty( $thumb )) ) :
+							?>
+							<div class = "item <?php echo $class; ?>">
+								<div class = "container">
+									<div class = "temas col-md-4">
+										<fieldset>
+											<legend><?php echo $titulo; ?></legend> 
+											<p><?php echo $descricao1; ?></p>
+										</fieldset>
+										<br>
+										<p><?php echo $descricao2; ?></p>
+										<br>
+										<a href="<?php echo $linkDoBotao; ?>" class="btn btn-default"><?php echo $botao; ?></a>
+										<div class="imagem-slider ">
+											<img class="img-responsive" src="<?php echo $thumb; ?>" >
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-						<?php
+
+							<?php
+							else:
+								var_dump($thumb);
+								echo 'deu ruim';
+						endif;
 					endwhile;
 					?>
 					<a class = "left carousel-control" href = "#carousel-example-generic" role = "button" data-slide = "prev">
@@ -66,16 +62,15 @@
 						<span class = "glyphicon glyphicon-chevron-right" aria-hidden = "true"></span>
 						<span class = "sr-only">Next</span>
 					</a>
-					<?php
-				else :
-
-				endif;
-				?>
+				</div>
 			</div>
-
 		</div>
-	</div>
-
+		<?php
+	else :
+		var_dump($thumb);
+		echo 'deu ruim';
+	endif;
+	?>
 </header>
 
 <div class="container">
@@ -104,10 +99,9 @@
 			endforeach;
 		endif;
 		?>
-		<div class="clear"></div>
 
-</div>
-</section><!-- posts -->
+	</section>
+</div><!-- posts -->
 
 
 <!--  contato  -->
@@ -117,7 +111,6 @@
         <div class="row">
             <div class="titulos-de-contexto ">
                 <h1>ENTRE EM CONTATO</h1>
-
             </div>
         </div>
         <div class="row">
@@ -127,21 +120,16 @@
                         <div>
                             <div class="form-group">
                                 <input type="text" class="form-control" name="nome" id="nome" value="" placeholder="nome*" required />
-                                <div class="help-block with-errors"></div>
                             </div>
                         </div>
                         <div>
                             <div class="form-group">
-                                <input type="email" class="form-control" name="email" id="email" value="" placeholder="email*" required
-                                       data-error="Por favor, informe um e-mail válido.">
-                                <div class="help-block with-errors"></div>
+                                <input type="email" class="form-control" name="email" id="email" value="" placeholder="email*" required>
                             </div>
                         </div>
                         <div>
                             <div class="form-group">
-                                <input type="number" class="form-control" name="telefone" id="telefone" value="" placeholder="telefone*" required
-                                       data-error="Por favor, somente números.">
-                                <div class="help-block with-errors"></div>
+                                <input type="number" class="form-control" name="telefone" id="telefone" value="" placeholder="telefone*" required>
                             </div>
                         </div>
                     </div>
@@ -149,7 +137,6 @@
                         <div class="form-group">
                             <textarea class="form-control" id="exampleTextarea" rows="4" 
                                       id="message" name="mensagem" placeholder="mensagem*" required></textarea>
-                            <div class="help-block with-errors"></div>
                         </div>
                         <div class="botao ">
                             <button class="btn btn-default btn-block" id="submit" name="submit" type="submit" value="ENVIAR">Enviar Mensagem</button>
@@ -175,8 +162,6 @@
         </div>
     </div>
 </section>
-
-
 
 <?php
 get_footer();
