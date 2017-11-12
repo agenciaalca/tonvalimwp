@@ -2,75 +2,60 @@
 <?php include_once 'mail.php'; ?>
 
 <header>
+	<div id="slider" class="slider">
+		<div id="carousel-example-generic" class="carousel slide background-header" data-ride="carousel">
 
-	<?php
-	if ( have_rows( 'slider', 'option' ) ):
-		?>
-		<div id="slider" class="slider">
-			<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-				<div class="carousel-inner background-header" role="listbox">
+			<!-- Wrapper for slides -->
+			<div  id="carousel-slider" class="carousel-inner" role="listbox">
 
-					<?php
-					$cont = 0;
-					while ( have_rows( 'slider', 'option' ) ) : the_row();
-
-						$titulo = get_sub_field( 'titulo', 'option' );
-						$descricao1 = get_sub_field( 'descricao-1', 'option' );
-						$descricao2 = get_sub_field( 'descricao-2', 'option' );
-						$linkDoBotao = get_sub_field( 'link_do_botao', 'option' );
-						$botao = get_sub_field( 'botao', 'option' );
-						$imagemDestacada = get_sub_field( 'imagem_destacada', 'option' );
-						$size = 'thumbnail';
-						$thumb = $imagemDestacada['sizes'][$size];
-
-						$cont++;
-
-						$class = ( $cont == 1 ) ? 'active' : null;
-
-						if ( (!empty( $titulo )) && (!empty( $descricao1 )) && (!empty( $descricao2 )) && (!empty( $linkDoBotao )) && (!empty( $botao )) && (!empty( $imagemDestacada )) && (!empty( $thumb )) ) :
-							?>
-							<div class = "item <?php echo $class; ?>">
-								<div class = "container">
-									<div class = "temas col-md-4">
-										<fieldset>
-											<legend><?php echo $titulo; ?></legend> 
-											<p><?php echo $descricao1; ?></p>
-										</fieldset>
-										<br>
-										<p><?php echo $descricao2; ?></p>
-										<br>
-										<a href="<?php echo $linkDoBotao; ?>" class="btn btn-default"><?php echo $botao; ?></a>
-										<div class="imagem-slider ">
-											<img class="img-responsive" src="<?php echo $thumb; ?>" >
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<?php
-							else:
-								var_dump($thumb);
-								echo 'deu ruim';
-						endif;
-					endwhile;
-					?>
-					<a class = "left carousel-control" href = "#carousel-example-generic" role = "button" data-slide = "prev">
-						<span class = "glyphicon glyphicon-chevron-left" aria-hidden = "true"></span>
-						<span class = "sr-only">Previous</span>
-					</a>
-					<a class = "right carousel-control" href = "#carousel-example-generic" role = "button" data-slide = "next">
-						<span class = "glyphicon glyphicon-chevron-right" aria-hidden = "true"></span>
-						<span class = "sr-only">Next</span>
-					</a>
+				<div class="item active">
+					<div class="container">
+						<div class="conteudo-slider col-md-4">
+							<fieldset>
+								<legend>PALESTRAS</legend> 
+								<p>2. Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de</p>
+							</fieldset>
+							<br>
+							<p>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de</p>
+							<br>
+							<a href="#" class="btn btn-default">Saiba Mais</a>
+						</div>
+						<div class="imagem-slider">
+							<img src="<?php echo get_template_directory_uri(); ?>/assets/img/grupo.png" width="100%">
+						</div>
+					</div>
 				</div>
+				<div class="item">
+					<div class="container">
+						<div class="conteudo-slider col-md-4">
+							<fieldset>
+								<legend>PALESTRAS</legend> 
+								<p>1. Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de</p>
+							</fieldset>
+							<br>
+							<p>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de</p>
+							<br>
+							<a href="#" class="btn btn-default">Saiba Mais</a>
+						</div>
+						<div class="imagem-slider">
+							<img src="<?php echo get_template_directory_uri(); ?>/assets/img/grupo.png" width="100%">
+						</div>
+					</div>
+				</div>
+
+				<!-- Controls -->
+				<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+					<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+					<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
+
 			</div>
 		</div>
-		<?php
-	else :
-		var_dump($thumb);
-		echo 'deu ruim';
-	endif;
-	?>
+	</div>
 </header>
 
 <div class="container">
@@ -103,6 +88,28 @@
 	</section>
 </div><!-- posts -->
 
+<div id="insta">
+<!--	 LightWidget WIDGET <script src="//lightwidget.com/widgets/lightwidget.js"></script>
+	<iframe src="//lightwidget.com/widgets/8000e570dd565b669fd5951f73d503d8.html"
+			scrolling="no" allowtransparency="true" class="lightwidget-widget" 
+			style="width: 100%; border: 0; overflow: hidden;"></iframe>-->
+
+<h1><i class="fa fa-instagram"></i> nada</h1>
+<div id="gram-wrapper">
+	<ul id="gram-carousel"></ul>
+	<i class="prev-btn fa fa-chevron-left"></i>
+	<i class="next-btn fa fa-chevron-right">
+		
+	</i>
+</div>
+
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"/>
+
+
+</div>
+
+ <div class = "myslider"> </ div>
 
 <!--  contato  -->
 <section id="contato" class="contato">

@@ -4,8 +4,6 @@ ini_set( 'display_startup_erros', 1 );
 error_reporting( E_ALL );
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -21,7 +19,19 @@ error_reporting( E_ALL );
         <link rel="shortcut icon" href="img/favicon.png"> 
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 
-<?php wp_head(); ?>
+
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108674939-2"></script>
+		<script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+
+            gtag('config', 'UA-108674939-2');
+		</script>
+		<?php wp_head(); ?>
     </head>
 	<body>
 		<!-- Navbar -->
