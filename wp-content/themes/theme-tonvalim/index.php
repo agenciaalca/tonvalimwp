@@ -1,7 +1,6 @@
 <?php get_header(); ?>
 <?php include_once 'mail.php'; ?>
 
-<header>
 	<div id="slider" class="slider">
 		<div id="carousel-example-generic" class="carousel slide background-header" data-ride="carousel">
 
@@ -56,7 +55,6 @@
 			</div>
 		</div>
 	</div>
-</header>
 
 <div class="container">
     <!--  Blog -->

@@ -5,22 +5,21 @@
  * ************************************ */
 
 function escolheCSS() {
-	$numeroAleatorio = mt_rand( 1, 4 );
-	echo $numeroAleatorio . "<br>";
-
-	switch ( $numeroAleatorio ) {
-		case 1:
-			echo '<link rel="stylesheet" type="text/css" href="<?php bloginfo( "template_directory" ); ?>/assets/css/cor1.css" />';
-			break;
-		case 2:
-			echo '<link rel="stylesheet" type="text/css" href="<?php bloginfo( "template_directory" ); ?>/assets/css/cor2.css" />';
-			break;
-		case 3:
-			echo '<link rel="stylesheet" type="text/css" href="' . bloginfo( "template_directory" ) . '"/assets/css/cor3.css" />';
-			break;
-		default:
-			break;
-	}
+//	$numeroAleatorio = mt_rand( 1, 4 );
+//
+//	switch ( $numeroAleatorio ) {
+//		case 1:
+//			echo '<link rel="stylesheet" type="text/css" href="http://' . $_SERVER["HTTP_HOST"] . '/wp-content/themes/theme-tonvalim/assets/css/cor1.css" />';
+//			break;
+//		case 2:
+//			echo '<link rel="stylesheet" type="text/css" href="http://' . $_SERVER["HTTP_HOST"] . '/wp-content/themes/theme-tonvalim/assets/css/cor2.css" />';
+//			break;
+//		case 3:
+//			echo '<link rel="stylesheet" type="text/css" href="http://' . $_SERVER["HTTP_HOST"] . '/wp-content/themes/theme-tonvalim/assets/css/cor3.css" />';
+//			break;
+//		default:
+//			break;
+//	}
 }
 
 /* * ************************************
@@ -80,22 +79,41 @@ register_nav_menus( array(
  *  SCRIPTS / CSS
  * ************************************ */
 
-function wp_responsivo_scripts() {
+function wp_inclusao_scripts() {
 	// Carregando CSS header
-	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.min.css' );
-	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/css/bootstrapValidator.min.css' );
+	//funçao nativa do wp ('nomedocss', caminho)
+	wp_enqueue_style( 'bootstrap-css', get_template_directory_uri() . '/assets/css/bootstrap.min.css' );
 	wp_enqueue_style( 'style', get_stylesheet_uri() );
 
+
+	$numeroAleatorio = mt_rand( 1, 4 );
+
+	switch ( $numeroAleatorio ) {
+		case 1:
+			wp_enqueue_style( 'css-cor1', get_template_directory_uri() . '/assets/css/cor1.css' );
+			break;
+		case 2:
+			wp_enqueue_style( 'css-cor2', get_template_directory_uri() . '/assets/css/cor2.css' );
+			break;
+		case 3:
+			wp_enqueue_style( 'css-cor3', get_template_directory_uri() . '/assets/css/cor3.css' );
+			break;
+		default:
+			break;
+	}
+
 	// Carregando Scripts header
-	wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/assets/js/bootstrap.min.js', array( 'jquery' ) );
-	wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/assets/js/jquery-3.2.1.min.js', array( 'jquery' ) );
-	wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/assets/js/validator.min.js', array( 'jquery' ) );
+//	wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/assets/js/bootstrap.min.js', array( 'jquery' ) );
+//	wp_enqueue_script( 'jquery', get_template_directory_uri() . '/assets/js/jquery-3.2.1.min.js', array( 'jquery' ) );
+//	wp_enqueue_script( 'bootstrap-validator-js', get_template_directory_uri() . '/assets/js/validator.min.js', array( 'jquery' ) );
 
 	//Carregando no footer
-	//wp_enqueue_script('functions-js', get_template_directory_uri().'/assets/js/functions.js', array('jquery'), '', true );
+	wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/assets/js/bootstrap.min.js', array( 'jquery' ), '', true );
+	wp_enqueue_script( 'jquery', get_template_directory_uri() . '/assets/js/jquery-3.2.1.min.js', array( 'jquery' ), '', true );
+	wp_enqueue_script( 'bootstrap-validator-js', get_template_directory_uri() . '/assets/js/validator.min.js', array( 'jquery' ), '', true );
 }
 
-add_action( 'wp_enqueue_scripts', 'wp_responsivo_scripts' );
+add_action( 'wp_enqueue_scripts', 'wp_inclusao_scripts' );
 
 
 /* * ************************************
@@ -109,7 +127,7 @@ if ( function_exists( 'acf_add_options_page' ) ) {
 		'menu_slug' => 'option-page',
 		'capability' => 'edit_posts',
 		'redirect' => true
-	) );
+			) );
 
 	acf_add_options_sub_page( array(
 		'page_title' => 'Formulário de contato',
