@@ -10,14 +10,15 @@ error_reporting( E_ALL );
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-
-		<title><?php geraTitle(); ?> </title>
-
         <meta name="description" content="Tom Valim"/>
         <meta name="keywords" content="coach"/>
         <meta name="author" content="Agência Alca"/>
+
         <link rel="shortcut icon" href="img/favicon.png"> 
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+		<title><?php bloginfo( 'name' ); ?> </title>
+		<?php wp_head(); ?>
+		<?php escolheCSS(); ?>
 
 
 		<!-- Global site tag (gtag.js) - Google Analytics -->
@@ -31,7 +32,7 @@ error_reporting( E_ALL );
 
             gtag('config', 'UA-108674939-2');
 		</script>
-		<?php wp_head(); ?>
+
     </head>
 	<body>
 		<!-- Navbar -->

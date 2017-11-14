@@ -4,8 +4,8 @@
 //});
 
 $('.myslider').instaSlider({
-      clientID: null,
-      access_token: null,
+      clientID: "322548972",
+      access_token: "322548972.1677ed0.fb6b8f7b7c2740dfb336abea8134adac",
       search: '@iamchristill',
       prevClass: 'prev',
       nextClass: 'next',
@@ -13,3 +13,4 @@ $('.myslider').instaSlider({
       duration: 1000,
       delay: 5000
 });
+

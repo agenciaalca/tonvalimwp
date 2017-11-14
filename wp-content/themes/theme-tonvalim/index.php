@@ -88,11 +88,11 @@
 	</section>
 </div><!-- posts -->
 
-<div id="insta">
-<!--	 LightWidget WIDGET <script src="//lightwidget.com/widgets/lightwidget.js"></script>
+<!--<div id="insta">
+	 LightWidget WIDGET <script src="//lightwidget.com/widgets/lightwidget.js"></script>
 	<iframe src="//lightwidget.com/widgets/8000e570dd565b669fd5951f73d503d8.html"
 			scrolling="no" allowtransparency="true" class="lightwidget-widget" 
-			style="width: 100%; border: 0; overflow: hidden;"></iframe>-->
+			style="width: 100%; border: 0; overflow: hidden;"></iframe>
 
 <h1><i class="fa fa-instagram"></i> nada</h1>
 <div id="gram-wrapper">
@@ -109,7 +109,7 @@
 
 </div>
 
- <div class = "myslider"> </ div>
+ <div class = "myslider"> </div>-->
 
 <!--  contato  -->
 <section id="contato" class="contato">
