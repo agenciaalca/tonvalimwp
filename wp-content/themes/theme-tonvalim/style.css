@@ -217,14 +217,12 @@ footer a:hover{
     color: white;
 }
 .titulo{
-    padding-top: 100px;
+    padding: 10%;
 }
 .single-thumbnail img {
     position: absolute;
     left: 10%;
     top:  24%;
-    width: 400px;
-    height: 300px;
 }
 
 .info-post p{
@@ -256,7 +254,7 @@ footer a:hover{
 /*instagram*/
 .instafeed {
     width: 100%;
-    margin: 100px auto;
+    margin: 0 auto;
 }
 
 .slick-slide {
@@ -268,6 +266,7 @@ footer a:hover{
 }
 .slick-prev{
     left: 5px;
+    z-index: 5;
 }
 .slick-next{
     right: 5px;
@@ -283,13 +282,16 @@ footer a:hover{
 
 /* CSS RESPONSIVO */
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
 
+    .header-page{
+        height: 20%;
+    }
+    .titulo{
+        padding: 10%;
+    }
     .descricao-post p{
         padding: 10px;
-    }
-    header-page{
-        max-height: 300px;
     }
 
     legend{
@@ -299,7 +301,6 @@ footer a:hover{
     .slider{
         background-color: rgba(0,0,153, 0.62);
         padding: 15px 0;
-
     }
 
     .contato .titulos-de-contexto h1{
@@ -311,15 +312,24 @@ footer a:hover{
     }
 
 }
-@media only screen and (max-width: 1200px) {
-    .single-thumbnail img,
-    .imagem-slider img{
-        position: absolute;
-        top: -6%;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        opacity: 0.2;
+@media only screen and (max-width: 1023px) {
+    .header-page{
+        height: 20%;
     }
+    .titulo{
+        padding: 10%;
+    }
+    
+    .slider{
+        padding: 0;
+        height: 300px;
+    }
+    .item{
+        height: 300px;
+    }
+    .conteudo-slider{
+        padding: 7%
+    }
+
 }
 

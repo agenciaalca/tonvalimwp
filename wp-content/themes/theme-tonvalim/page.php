@@ -6,9 +6,9 @@
 			<h1 class="titulo"><?php the_title(); ?></h1>
 		</div>
 	</div>
-	<div class="single-thumbnail">
+<!--	<div class="single-thumbnail">
 		<?php the_post_thumbnail(); ?>
-	</div>
+	</div>-->
 </div>
 
 

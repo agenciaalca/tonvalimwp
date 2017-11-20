@@ -6,8 +6,8 @@
 			<h1 class="titulo"><?php the_title(); ?></h1>
 		</div>
 	</div>
-	<div class="single-thumbnail">
-		<?php the_post_thumbnail(); ?>
+	<div class="single-thumbnail hidden-sm hidden-xs">
+		<?php echo the_post_thumbnail(); ?>
 	</div>
 </div>
 
@@ -67,7 +67,7 @@
 					foreach ( $prevPost as $post ) {
 						setup_postdata( $post );
 						?>
-						<div class="col-md-2">
+						<div class="col-md-2 col-sm-6 col-xs-6 ">
 							<a class="previous" href="<?php the_permalink(); ?>"><span class="icon" >&laquo;</span> Post Anterior </a>
 						</div>
 						<?php
@@ -85,7 +85,7 @@
 					foreach ( $nextPost as $post ) {
 						setup_postdata( $post );
 						?>
-						<div class="col-md-2 col-md-offset-8 text-right">
+						<div class="col-md-2 col-md-offset-8 col-sm-6 col-xs-6 text-right">
 							<a class="next" href="<?php the_permalink(); ?>">Próximo Post <span class="icon" >&raquo;</span></a>
 						</div>
 						<?php
