@@ -14,9 +14,6 @@ error_reporting( E_ALL );
         <meta name="keywords" content="coach"/>
         <meta name="author" content="Agência Alca"/>
         <!--<link rel="shortcut icon" href="img/favicon.png">--> 
-
-		  <link rel="stylesheet" type="text/css" href="<?php bloginfo( 'template_directory' ); ?>/assets/css/slick.css">
-			<link rel="stylesheet" type="text/css" href="<?php bloginfo( 'template_directory' ); ?>/assets/css/slick-theme.css">
 		
 		<title><?php geraTitle(); ?> </title>
 		<?php wp_head(); ?>
