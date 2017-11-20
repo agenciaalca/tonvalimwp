@@ -53,15 +53,16 @@ Tags: responsive, blog, bootstrap
 
 
 /* SLIDER PRINCIPAL */
-.carousel-inner{
-    overflow: visible;
-}
-.background-header{
+.slider{
+    padding: 30px;
     background-color: var(--cor);
-    padding: 40px ;
     color: white;
     text-align: center;
 }
+.carousel-inner{
+    overflow: visible;
+}
+
 legend{
     border: none;
     color: white;
@@ -77,9 +78,9 @@ fieldset {
 .imagem-slider img {
     position: absolute;
     left: 40%;
-    top: 10px;
+    /*top: 10px;*/
     width: 600px;
-    height: 310px;
+    /*height: 310px;*/
 }
 .carousel-control.right,
 .carousel-control.left{
@@ -115,7 +116,7 @@ fieldset {
     position:relative;
     border: 3px solid #fff;
     text-align: center;
-    height: 300px;
+    /*max-height: 300px;*/
 }
 .single_post img{
     max-height: 100%;
@@ -190,8 +191,18 @@ footer .copyright{
     font-size:14px;
     line-height:36px;
     color:#fff;
+}
 
-}/* FIM FOOTER */
+footer a{
+    color: #fff;
+}
+
+footer a:hover{
+    color: #00d287;
+}
+
+
+/* FIM FOOTER */
 
 /* ARQUIVO EXTERNO COMUM - POST E SINGLE */
 
@@ -220,6 +231,7 @@ footer .copyright{
     color: #5d6567;
     line-height: 5px;
     padding-top: 35px;
+    padding-left: 15px;
 }
 .content-page,
 .content-post{
@@ -228,40 +240,49 @@ footer .copyright{
     letter-spacing: 1px;
     line-height: 20px;
 }
-.content{    
-    margin-bottom: 50px;
+.navegacao{
+    padding: 20px 0;
+}
+.navegacao a{
+    color: #5d6567;
+}
+.navegacao a:hover{
+    color: var(--cor);
+}
+.navegacao span{
+    color: var(--cor);
+}
+
+/*instagram*/
+#insta{
+    display: inline-block;
+    width:500px;height:500px;border:1px solid gray;margin:0 auto;
 }
 
 
 
 
 /* CSS RESPONSIVO */
+
 @media only screen and (max-width: 768px) {
 
     .descricao-post p{
         padding: 10px;
+    }
+    header-page{
+        max-height: 300px;
     }
 
     legend{
         font-size: 1.2em;
         width: 100px;
     }
-    .background-header{
-        margin: 40px 0;
+    .slider{
         background-color: rgba(0,0,153, 0.62);
-        padding: 0;
+        padding: 15px 0;
 
     }
-    .single-thumbnail img,
-    .imagem-slider img{
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        z-index: 1;
-        opacity: 0.3;
-    }
+    
     .contato .titulos-de-contexto h1{
         font-size: 25px;
     }
@@ -271,8 +292,46 @@ footer .copyright{
     }
 
 }
-@media only screen and (max-width: 370px) {
-    .descricao-post{
-        top: 84%;
+@media only screen and (max-width: 1200px) {
+    .single-thumbnail img,
+    .imagem-slider img{
+        position: absolute;
+        top: -6%;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        opacity: 0.2;
     }
 }
+
+.slider-slick {
+        width: 50%;
+        margin: 100px auto;
+    }
+
+    .slick-slide {
+      margin: 0px 20px;
+    }
+
+    .slick-slide img {
+      width: 100%;
+    }
+
+    .slick-prev:before,
+    .slick-next:before {
+      color: black;
+    }
+
+
+    .slick-slide {
+      transition: all ease-in-out .3s;
+      opacity: .2;
+    }
+    
+    .slick-active {
+      opacity: .5;
+    }
+
+    .slick-current {
+      opacity: 1;
+    }

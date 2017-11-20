@@ -13,15 +13,13 @@
 
 
 <div class="container">
-	<div class="row">
-		<div class=" content col-md-12 col-sm-12 col-xs-12">
+
+	<div class=" content col-md-12 col-sm-12 col-xs-12">
+		<div class="row">
 			<?php
 			if ( have_posts() ) :
 				while ( have_posts() ) : the_post();
 					?>
-
-
-
 					<div class="info-post">
 						<p>
 							<strong>Postado por:</strong> <?php the_author(); ?> <strong>em</strong> <?php the_date(); ?>
@@ -31,11 +29,8 @@
 					<div class="content-post">
 						<?php the_content(); ?>
 						<div class="col-md-2 col-md-offset-10 text-right">
-						<a class="btn btn-custom text-right" href="http://tonvalim.com.br">Voltar </a></div>
-						
+							<a class="btn btn-custom text-right" href="http://tonvalim.com.br">Voltar </a></div>
 					</div>
-
-
 					<!--					<div class="slug">
 											<div class="row">
 												<div class="col-md-3">Categoria:</div>
@@ -57,8 +52,10 @@
 					<p>Lamentamos mas não foram encontrados artigos.</p>
 				</div>            
 			<?php endif; ?>  
-
-			<div id="navegacao">
+		</div>
+		
+		<div class="row">
+			<div class="navegacao">
 				<?php
 				$prevPost = get_previous_post( true );
 				if ( $prevPost ) {
@@ -71,7 +68,7 @@
 						setup_postdata( $post );
 						?>
 						<div class="col-md-2">
-							<a class="previous" href="<?php the_permalink(); ?>">&laquo; Post Anterior </a>
+							<a class="previous" href="<?php the_permalink(); ?>"><span class="icon" >&laquo;</span> Post Anterior </a>
 						</div>
 						<?php
 						wp_reset_postdata();
@@ -88,8 +85,8 @@
 					foreach ( $nextPost as $post ) {
 						setup_postdata( $post );
 						?>
-						<div class="col-md-2 col-md-offset-10 text-right">
-							<a class="next" href="<?php the_permalink(); ?>">Próximo Post &raquo;</a>
+						<div class="col-md-2 col-md-offset-8 text-right">
+							<a class="next" href="<?php the_permalink(); ?>">Próximo Post <span class="icon" >&raquo;</span></a>
 						</div>
 						<?php
 						wp_reset_postdata();
@@ -97,9 +94,6 @@
 				} // end if
 				?>
 			</div>
-
-
-
 		</div>
 		<!--		Sidebar Area
 				<div class="col-md-4">

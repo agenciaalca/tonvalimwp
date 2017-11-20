@@ -1,31 +1,8 @@
 <?php
 
 /* * ************************************
- *  GERENCIA CSS COLORIDO
- * ************************************ */
-
-function escolheCSS() {
-//	$numeroAleatorio = mt_rand( 1, 4 );
-//
-//	switch ( $numeroAleatorio ) {
-//		case 1:
-//			echo '<link rel="stylesheet" type="text/css" href="http://' . $_SERVER["HTTP_HOST"] . '/wp-content/themes/theme-tonvalim/assets/css/cor1.css" />';
-//			break;
-//		case 2:
-//			echo '<link rel="stylesheet" type="text/css" href="http://' . $_SERVER["HTTP_HOST"] . '/wp-content/themes/theme-tonvalim/assets/css/cor2.css" />';
-//			break;
-//		case 3:
-//			echo '<link rel="stylesheet" type="text/css" href="http://' . $_SERVER["HTTP_HOST"] . '/wp-content/themes/theme-tonvalim/assets/css/cor3.css" />';
-//			break;
-//		default:
-//			break;
-//	}
-}
-
-/* * ************************************
  *  THEME SUPORT A THUMBNAILS
  * ************************************ */
-
 function add_suport_theme() {
 	add_theme_support( 'post-thumbnails' );
 }
@@ -47,10 +24,12 @@ add_action( 'after_setup_theme', 'add_suport_theme' );
  *  GERENCIA TITLE
  * ************************************ */
 function geraTitle() {
-	bloginfo( 'name' );
-	if ( !is_home() )
-		echo ' | ';
-	the_title();
+	
+	if ( is_home() ) {
+		echo bloginfo( 'name' );
+	}else{
+		echo bloginfo( 'name' ) . " |dsafd " . the_title();
+	}
 }
 
 /* * ************************************
@@ -76,16 +55,29 @@ register_nav_menus( array(
 
 
 /* * ************************************
- *  SCRIPTS / CSS
+ *  INCLUSÃO DE SCRIPTS / CSS
  * ************************************ */
+
+// Async load
+function ikreativ_async_scripts($url)
+{
+    if ( strpos( $url, '#asyncload') === false )
+        return $url;
+    else if ( is_admin() )
+        return str_replace( '#asyncload', '', $url );
+    else
+	return str_replace( '#asyncload', '', $url )."' async='async"; 
+    }
+add_filter( 'clean_url', 'ikreativ_async_scripts', 11, 1 );
 
 function wp_inclusao_scripts() {
 	// Carregando CSS header
 	//funçao nativa do wp ('nomedocss', caminho)
 	wp_enqueue_style( 'bootstrap-css', get_template_directory_uri() . '/assets/css/bootstrap.min.css' );
+	wp_enqueue_style( 'slick-css', get_template_directory_uri() . '/assets/css/slick.css' );
+	wp_enqueue_style( 'font-awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' );
 	wp_enqueue_style( 'style', get_stylesheet_uri() );
-
-
+	
 	$numeroAleatorio = mt_rand( 1, 4 );
 
 	switch ( $numeroAleatorio ) {
@@ -103,14 +95,18 @@ function wp_inclusao_scripts() {
 	}
 
 	// Carregando Scripts header
+	// wp_enqueue_script( 'slick-js', get_template_directory_uri() . '/assets/js/slick.min.js', array( 'jquery' ));
 //	wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/assets/js/bootstrap.min.js', array( 'jquery' ) );
 //	wp_enqueue_script( 'jquery', get_template_directory_uri() . '/assets/js/jquery-3.2.1.min.js', array( 'jquery' ) );
 //	wp_enqueue_script( 'bootstrap-validator-js', get_template_directory_uri() . '/assets/js/validator.min.js', array( 'jquery' ) );
 
 	//Carregando no footer
-	wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/assets/js/bootstrap.min.js', array( 'jquery' ), '', true );
 	wp_enqueue_script( 'jquery', get_template_directory_uri() . '/assets/js/jquery-3.2.1.min.js', array( 'jquery' ), '', true );
+	
+	wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/assets/js/bootstrap.min.js', array( 'jquery' ), '', true );
 	wp_enqueue_script( 'bootstrap-validator-js', get_template_directory_uri() . '/assets/js/validator.min.js', array( 'jquery' ), '', true );
+	wp_enqueue_script( 'instafeed-js', get_template_directory_uri() . '/assets/js/instafeed.min.js', array( 'jquery' ), '', true );
+	wp_enqueue_script( 'instagram-api-js', get_template_directory_uri() . '/assets/js/instagramapi.js', array( 'jquery' ), '', true );
 }
 
 add_action( 'wp_enqueue_scripts', 'wp_inclusao_scripts' );

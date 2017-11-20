@@ -13,12 +13,13 @@ error_reporting( E_ALL );
         <meta name="description" content="Tom Valim"/>
         <meta name="keywords" content="coach"/>
         <meta name="author" content="Agência Alca"/>
+        <!--<link rel="shortcut icon" href="img/favicon.png">--> 
 
-        <link rel="shortcut icon" href="img/favicon.png"> 
-        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-		<title><?php bloginfo( 'name' ); ?> </title>
+		  <link rel="stylesheet" type="text/css" href="<?php bloginfo( 'template_directory' ); ?>/assets/css/slick.css">
+			<link rel="stylesheet" type="text/css" href="<?php bloginfo( 'template_directory' ); ?>/assets/css/slick-theme.css">
+		
+		<title><?php geraTitle(); ?> </title>
 		<?php wp_head(); ?>
-		<?php escolheCSS(); ?>
 
 
 		<!-- Global site tag (gtag.js) - Google Analytics -->
@@ -32,7 +33,7 @@ error_reporting( E_ALL );
 
             gtag('config', 'UA-108674939-2');
 		</script>
-
+		
     </head>
 	<body>
 		<!-- Navbar -->

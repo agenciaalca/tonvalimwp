@@ -2,7 +2,7 @@
 <?php include_once 'mail.php'; ?>
 
 	<div id="slider" class="slider">
-		<div id="carousel-example-generic" class="carousel slide background-header" data-ride="carousel">
+		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 
 			<!-- Wrapper for slides -->
 			<div  id="carousel-slider" class="carousel-inner" role="listbox">
@@ -20,7 +20,7 @@
 							<a href="#" class="btn btn-default">Saiba Mais</a>
 						</div>
 						<div class="imagem-slider">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/img/grupo.png" width="100%">
+							<img class="img-responsive" src="<?php echo get_template_directory_uri(); ?>/assets/img/img7.jpg" width="100%">
 						</div>
 					</div>
 				</div>
@@ -37,7 +37,7 @@
 							<a href="#" class="btn btn-default">Saiba Mais</a>
 						</div>
 						<div class="imagem-slider">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/img/grupo.png" width="100%">
+							<img class="img-responsive" src="<?php echo get_template_directory_uri(); ?>/assets/img/img8.jpg" width="100%">
 						</div>
 					</div>
 				</div>
@@ -64,7 +64,7 @@
         </div>
 
 		<?php
-		$args = array( 'post_type' => 'post', 'showposts' => 3 );
+		$args = array( 'post_type' => 'post', 'showposts' => 6 );
 		$my_posts = get_posts( $args );
 		if ( $my_posts ) : foreach ( $my_posts as $post ) : setup_postdata( $post );
 				?>
@@ -86,28 +86,37 @@
 	</section>
 </div><!-- posts -->
 
-<!--<div id="insta">
-	 LightWidget WIDGET <script src="//lightwidget.com/widgets/lightwidget.js"></script>
-	<iframe src="//lightwidget.com/widgets/8000e570dd565b669fd5951f73d503d8.html"
-			scrolling="no" allowtransparency="true" class="lightwidget-widget" 
-			style="width: 100%; border: 0; overflow: hidden;"></iframe>
+<div id="instafeed" class="instafeed"></div>
 
-<h1><i class="fa fa-instagram"></i> nada</h1>
-<div id="gram-wrapper">
-	<ul id="gram-carousel"></ul>
-	<i class="prev-btn fa fa-chevron-left"></i>
-	<i class="next-btn fa fa-chevron-right">
-		
-	</i>
-</div>
-
-
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"/>
-
-
-</div>
-
- <div class = "myslider"> </div>-->
+<section class="center slider-slick">
+    <div>
+      <img src="http://placehold.it/350x300?text=1">
+    </div>
+    <div>
+      <img src="http://placehold.it/350x300?text=2">
+    </div>
+    <div>
+      <img src="http://placehold.it/350x300?text=3">
+    </div>
+    <div>
+      <img src="http://placehold.it/350x300?text=4">
+    </div>
+    <div>
+      <img src="http://placehold.it/350x300?text=5">
+    </div>
+    <div>
+      <img src="http://placehold.it/350x300?text=6">
+    </div>
+    <div>
+      <img src="http://placehold.it/350x300?text=7">
+    </div>
+    <div>
+      <img src="http://placehold.it/350x300?text=8">
+    </div>
+    <div>
+      <img src="http://placehold.it/350x300?text=9">
+    </div>
+  </section>
 
 <!--  contato  -->
 <section id="contato" class="contato">
