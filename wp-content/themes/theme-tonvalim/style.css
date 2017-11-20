@@ -254,11 +254,31 @@ footer a:hover{
 }
 
 /*instagram*/
-#insta{
-    display: inline-block;
-    width:500px;height:500px;border:1px solid gray;margin:0 auto;
+.instafeed {
+    width: 100%;
+    margin: 100px auto;
 }
 
+.slick-slide {
+    margin: 0;
+}
+
+.slick-slide img {
+    width: 100%;
+}
+.slick-prev{
+    left: 5px;
+}
+.slick-next{
+    right: 5px;
+}
+
+.slick-prev:before{
+    color: var(--cor);
+}
+.slick-next:before {
+    color: var(--cor);
+}
 
 
 
@@ -282,7 +302,7 @@ footer a:hover{
         padding: 15px 0;
 
     }
-    
+
     .contato .titulos-de-contexto h1{
         font-size: 25px;
     }
@@ -304,34 +324,3 @@ footer a:hover{
     }
 }
 
-.slider-slick {
-        width: 50%;
-        margin: 100px auto;
-    }
-
-    .slick-slide {
-      margin: 0px 20px;
-    }
-
-    .slick-slide img {
-      width: 100%;
-    }
-
-    .slick-prev:before,
-    .slick-next:before {
-      color: black;
-    }
-
-
-    .slick-slide {
-      transition: all ease-in-out .3s;
-      opacity: .2;
-    }
-    
-    .slick-active {
-      opacity: .5;
-    }
-
-    .slick-current {
-      opacity: 1;
-    }

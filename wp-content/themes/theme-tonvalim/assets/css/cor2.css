@@ -18,7 +18,9 @@ footer,
 .navbar-custom .navbar-nav> li> a:hover,
 .navbar-custom .navbar-nav>.active>a:hover
 .navegacao a:hover,
-.navegacao span{
+.navegacao span,
+.slick-prev:before,
+.slick-next:before {
     color: var(--cor);
 }
 
