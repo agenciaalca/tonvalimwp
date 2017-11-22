@@ -11,7 +11,6 @@
 	</div>
 </div>
 
-
 <div class="container">
 
 	<div class=" content col-md-12 col-sm-12 col-xs-12">
@@ -29,7 +28,8 @@
 					<div class="content-post">
 						<?php the_content(); ?>
 						<div class="col-md-2 col-md-offset-10 text-right">
-							<a class="btn btn-custom text-right" href="http://tonvalim.com.br">Voltar </a></div>
+							<a class="btn btn-custom text-right" href="http://tonvalim.com.br">Voltar </a>
+						</div>
 					</div>
 					<!--					<div class="slug">
 											<div class="row">
@@ -53,7 +53,7 @@
 				</div>            
 			<?php endif; ?>  
 		</div>
-		
+
 		<div class="row">
 			<div class="navegacao">
 				<?php
