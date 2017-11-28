@@ -1,13 +1,13 @@
 <?php get_header(); ?>
 
 <div class="container-fluid">
-	<div class="header-page">
-		<div class="container col-md-5 col-md-offset-6 ">
+	<div class="header-single">
+		<div class="container col-md-6 col-md-offset-6 ">
 			<h1 class="titulo"><?php the_title(); ?></h1>
 		</div>
 	</div>
 	<div class="single-thumbnail hidden-sm hidden-xs">
-		<?php echo the_post_thumbnail(); ?>
+		<div class="img-responsive"><?php echo the_post_thumbnail(); ?></div>
 	</div>
 </div>
 
@@ -21,7 +21,7 @@
 					?>
 					<div class="info-post">
 						<p>
-							<strong>Postado por:</strong> <?php the_author(); ?> <strong>em</strong> <?php the_date(); ?>
+							<strong class="corfonte">Postado por:</strong> <?php the_author(); ?> <strong class="corfonte">em</strong> <?php the_date(); ?>
 						</p>
 					</div>
 

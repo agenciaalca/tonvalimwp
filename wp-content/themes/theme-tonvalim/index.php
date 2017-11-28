@@ -9,7 +9,7 @@
 
 			<div class="item active">
 				<div class="container">
-					<div class="conteudo-slider col-md-4">
+					<div class="conteudo-slider col-md-5">
 						<fieldset>
 							<legend>PALESTRAS</legend> 
 							<p>2. Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de</p>
@@ -19,14 +19,14 @@
 						<br>
 						<a href="#" class="btn btn-default">Saiba Mais</a>
 					</div>
-					<div class="imagem-slider">
+					<div class="imagem-slider hidden-xs hidden-sm">
 						<img class="img-responsive" src="<?php echo get_template_directory_uri(); ?>/assets/img/img7.jpg" width="100%">
 					</div>
 				</div>
 			</div>
 			<div class="item">
 				<div class="container">
-					<div class="conteudo-slider col-md-4">
+					<div class="conteudo-slider col-md-5">
 						<fieldset>
 							<legend>PALESTRAS</legend> 
 							<p>1. Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de</p>
@@ -36,7 +36,7 @@
 						<br>
 						<a href="#" class="btn btn-default">Saiba Mais</a>
 					</div>
-					<div class="imagem-slider">
+					<div class="imagem-slider hidden-xs hidden-sm">
 						<img class="img-responsive" src="<?php echo get_template_directory_uri(); ?>/assets/img/img8.jpg" width="100%">
 					</div>
 				</div>
@@ -135,14 +135,10 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="informacoes-contato">
-                    <div class="informacoes-contato">
-                        <p><i class="fa fa-envelope" aria-hidden="true"></i> <?php the_field( 'email', 'option' ); ?></p>
-                        <p><i class="fa fa-whatsapp" aria-hidden="true"></i> <?php the_field( 'telefone', 'option' ); ?></p>
-                        <p><i class="fa fa-globe" aria-hidden="true"></i> <?php the_field( 'endereco', 'option' ); ?></p>
-
-
-                    </div>
+				<div class="informacoes-contato">
+					<p><i class="fa fa-envelope" aria-hidden="true"></i> <?php the_field( 'email', 'option' ); ?></p>
+					<p><i class="fa fa-whatsapp" aria-hidden="true"></i> <?php the_field( 'telefone', 'option' ); ?></p>
+					<p><i class="fa fa-globe" aria-hidden="true"></i> <?php the_field( 'endereco', 'option' ); ?></p>
                 </div>
             </div>
         </div>

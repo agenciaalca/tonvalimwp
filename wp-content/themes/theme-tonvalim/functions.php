@@ -29,7 +29,7 @@ function geraTitle() {
 	if ( is_home() ) {
 		echo bloginfo( 'name' );
 	} else {
-		echo bloginfo( 'name' ) . the_title();
+		echo bloginfo( 'name' ) . " | " . the_title();
 	}
 }
 
@@ -95,30 +95,31 @@ function wp_inclusao_scripts() {
 add_action( 'wp_enqueue_scripts', 'wp_inclusao_scripts' );
 
 /* -----------------------------------------------------
-			INSTAGRAM
--------------------------------------------------------- */
-function fetchData($url){
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $url);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_TIMEOUT, 20);
-    $result = curl_exec($ch);
-    curl_close($ch);
-    return $result;
+  INSTAGRAM
+  -------------------------------------------------------- */
+
+function fetchData( $url ) {
+	$ch = curl_init();
+	curl_setopt( $ch, CURLOPT_URL, $url );
+	curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1 );
+	curl_setopt( $ch, CURLOPT_TIMEOUT, 20 );
+	$result = curl_exec( $ch );
+	curl_close( $ch );
+	return $result;
 }
 
-function instagram(){
-    $result = fetchData("https://api.instagram.com/v1/users/3056016000/media/recent/?access_token=3056016000.1677ed0.bd679286b53a4d73b8013c4ffdedba29");
-    $result = json_decode($result);
-    $count = 0;
-    if ($result->data) {
-        return $result->data;
-    }
-    else{
-    	return null;
-    }
+function instagram() {
+	$result = fetchData( "https://api.instagram.com/v1/users/3056016000/media/recent/?access_token=3056016000.1677ed0.bd679286b53a4d73b8013c4ffdedba29" );
+	$result = json_decode( $result );
+	$count = 0;
+	if ( $result->data ) {
+		return $result->data;
+	} else {
+		return null;
+	}
 }
-fetchData("https://api.instagram.com/v1/users/3056016000/media/recent/?access_token=3056016000.1677ed0.bd679286b53a4d73b8013c4ffdedba29");
+
+fetchData( "https://api.instagram.com/v1/users/3056016000/media/recent/?access_token=3056016000.1677ed0.bd679286b53a4d73b8013c4ffdedba29" );
 
 /* * ************************************
  *  Criando função do ACF Cunstom Type Field

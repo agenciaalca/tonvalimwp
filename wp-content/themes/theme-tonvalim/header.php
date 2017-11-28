@@ -14,7 +14,7 @@ error_reporting( E_ALL );
         <meta name="keywords" content="coach"/>
         <meta name="author" content="Agência Alca"/>
         <!--<link rel="shortcut icon" href="img/favicon.png">--> 
-		
+
 		<title><?php geraTitle(); ?> </title>
 		<?php wp_head(); ?>
 
@@ -30,7 +30,7 @@ error_reporting( E_ALL );
 
             gtag('config', 'UA-108674939-2');
 		</script>
-		
+
     </head>
 	<body>
 		<!-- Navbar -->
@@ -44,7 +44,8 @@ error_reporting( E_ALL );
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a class="logo" href="#home"><img src="<?php bloginfo( 'template_directory' ); ?>/assets/img/logo.jpg" height="50px"></a>
+						<a href="http://tonvalim.com.br"><div class="logo"></div>
+						</a>
 					</div>
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<?php require_once('assets/includes/wp_bootstrap_navwalker.php'); ?>

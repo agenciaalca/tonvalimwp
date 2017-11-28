@@ -1,5 +1,8 @@
 :root{
-    --cor: #000000;
+    --cor: #1da38a;
+}
+.logo{
+    background-image: url("../img/logocor1.png");
 }
 
 .btn-custom,
@@ -9,7 +12,8 @@
 .descricao-post,
 .contato,
 footer,
-.header-page{
+.header-page,
+.header-single{
     background-color: var(--cor);
 }
 
@@ -20,6 +24,12 @@ footer,
 .navegacao a:hover,
 .navegacao span,
 .slick-prev:before,
-.slick-next:before {
+.slick-next:before,
+.corfonte{
     color: var(--cor);
+}
+
+.contato .form-control{
+    background-color: #146a5b;
+    border: 1px solid #146a5b;
 }
