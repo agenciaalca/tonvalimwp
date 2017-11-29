@@ -27,8 +27,6 @@
 			?>
 			<div class="artigo">
 				<h2>Nada Encontrado</h2>
-				<p>Erro 404</p>
-				<p>Lamentamos mas não foram encontrados artigos.</p>
 			</div>            
 		<?php endif; ?>
 	</div>

@@ -6,7 +6,6 @@
 
 		<!-- Wrapper for slides -->
 		<div  id="carousel-slider" class="carousel-inner" role="listbox">
-
 			<div class="item active">
 				<div class="container">
 					<div class="conteudo-slider col-md-5">
@@ -41,7 +40,6 @@
 					</div>
 				</div>
 			</div>
-
 			<!-- Controls -->
 			<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
 				<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -57,18 +55,17 @@
 </div>
 
 <div class="container">
+
     <!--  Blog -->
     <section id="blog" class="row">
         <div class="titulos-de-contexto ">
             <h1>ÚLTIMAS NOTÍCIAS</h1>
         </div>
-
 		<?php
 		$args = array( 'post_type' => 'post', 'showposts' => 6 );
 		$my_posts = get_posts( $args );
 		if ( $my_posts ) : foreach ( $my_posts as $post ) : setup_postdata( $post );
 				?>
-
 				<div id="post"  class="col-md-4 col-sm-6 col-xs-12">
 					<div class="single_post">
 						<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( false, array( 'class' => 'img-responsive' ) ); ?></a>
@@ -77,22 +74,19 @@
 						</div>
 					</div>
 				</div>
-
 				<?php
 			endforeach;
 		endif;
 		?>
-
 	</section>
 </div><!-- posts -->
 
 
-
+<!-- incluindo carousel do instagram -->
 <div id="instafeed" class="instafeed"></div>
 
 <!--  contato  -->
 <section id="contato" class="contato">
-
     <div class="container">
         <div class="row">
             <div class="titulos-de-contexto ">
@@ -130,7 +124,6 @@
                     </div>
                 </form>
                 <div class="col-md-12">
-
                     <div class="mensagem-alerta"><?php echo $msg ?></div>
                 </div>
             </div>
@@ -145,5 +138,4 @@
     </div>
 </section>
 
-<?php
-get_footer();
+<?php get_footer();?>

@@ -1,4 +1,5 @@
 var feed = new Instafeed({
+    
     get: 'user',
     userId: 3295626329,
     accessToken: '3295626329.a4f81a9.b13a9b826cd6490f901dca9891cfdfae',

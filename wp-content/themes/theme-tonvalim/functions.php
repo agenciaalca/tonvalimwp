@@ -26,7 +26,7 @@ add_action( 'after_setup_theme', 'add_suport_theme' );
  * ************************************ */
 function geraTitle() {
 
-	if ( is_home() ) {
+	if (is_home()) {
 		echo bloginfo( 'name' );
 	} else {
 		echo bloginfo( 'name' ) . " | " . the_title();

@@ -1,6 +1,11 @@
 :root{
     --cor: #e5262b;
 }
+.navbar-custom .navbar-nav> li> a:hover,
+.navbar-custom .navbar-nav>.active>a:hover{
+    border-bottom: 3px solid #e5262b;
+}
+
 .logo{
     background-image: url("../img/logocor2.png");
 }
