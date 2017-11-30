@@ -12,94 +12,67 @@
 </div>
 
 <div class="container">
-
-	<div class=" content col-md-12 col-sm-12 col-xs-12">
-		<div class="row">
-			<?php
-			if ( have_posts() ) :
-				while ( have_posts() ) : the_post();
-					?>
-					<div class="info-post">
-						<p>
-							<strong class="corfonte">Postado por:</strong> <?php the_author(); ?> <strong class="corfonte">em</strong> <?php the_date(); ?>
-						</p>
-					</div>
-
-					<div class="content-post">
-						<?php the_content(); ?>
-						<div class="col-md-2 col-md-offset-10 text-right">
-							<a class="btn btn-custom text-right" href="http://tonvalim.com.br">Voltar </a>
-						</div>
-					</div>
-					<!--					<div class="slug">
-											<div class="row">
-												<div class="col-md-3">Categoria:</div>
-												<div class="col-md-3">Palavras-Chave:</div>
-											</div>
-											<div class="row">
-												<div class="col-md-3"><?php the_category(); ?></div>
-												<div class="col-md-3"><?php the_category(); ?></div>
-											</div>
-										</div>-->
-
-					<?php
-				endwhile;
-			else:
-				?>
-				<div class="artigo">
-					<h2>Nada Encontrado</h2>
-				</div>            
-			<?php endif; ?>  
-		</div>
-
-		<div class="row">
-			<div class="navegacao">
+	<div class="col-md-12 col-sm-12 col-xs-12">
+		<div class=" content">
+			<div class="row">
 				<?php
-				$prevPost = get_previous_post( true );
-				if ( $prevPost ) {
-					$args = array(
-						'posts_per_page' => 1,
-						'include' => $prevPost->ID
-					);
-					$prevPost = get_posts( $args );
-					foreach ( $prevPost as $post ) {
-						setup_postdata( $post );
+				if ( have_posts() ) :
+					while ( have_posts() ) : the_post();
 						?>
-						<div class="col-md-2 col-sm-6 col-xs-6 ">
-							<a class="previous" href="<?php the_permalink(); ?>"><span class="icon" >&laquo;</span> Post Anterior </a>
+						<div class="info-post">
+							<p>
+								<strong class="corfonte">Postado por:</strong> <?php the_author(); ?> <strong class="corfonte">em</strong> <?php the_date(); ?>
+							</p>
 						</div>
-						<?php
-						wp_reset_postdata();
-					} //end foreach
-				} // end if
 
-				$nextPost = get_next_post( true );
-				if ( $nextPost ) {
-					$args = array(
-						'posts_per_page' => 1,
-						'include' => $nextPost->ID
-					);
-					$nextPost = get_posts( $args );
-					foreach ( $nextPost as $post ) {
-						setup_postdata( $post );
-						?>
-						<div class="col-md-2 col-md-offset-8 col-sm-6 col-xs-6 text-right">
-							<a class="next" href="<?php the_permalink(); ?>">Próximo Post <span class="icon" >&raquo;</span></a>
+						<div class="content-post">
+							<?php the_content(); ?>
+							<div class="col-md-2 col-md-offset-10 text-right">
+								<a class="btn btn-custom text-right" href="http://tonvalim.com.br">Voltar </a>
+							</div>
 						</div>
+
+
 						<?php
-						wp_reset_postdata();
-					} //end foreach
-				} // end if
-				?>
+					endwhile;
+				else:
+					?>
+					<div class="artigo">
+						<h2>Erro 404! Nada Encontrado</h2>
+						<a href="http://tonvalim.com.br" class="btn btn-custom">Voltar para página principal</a>
+					</div>            
+				<?php endif; ?>  
+			</div>
+			<div class="row">
+				<div class="navegacao">
+					<?php
+					the_post_navigation( array(
+						'screen_reader_text' => ' ',
+						'prev_text' => '               
+				<span class="meta-nav" aria-hidden="true">' . __( '&#171;	Post Anterior' ) . '</span>',
+						'next_text' => '
+				<span class="meta-nav" aria-hidden="true">' . __( 'Próximo Post &#187;' ) . '</span>'
+					) );
+					?>
+				</div>
+			</div>
+			<div class="palavras-chaves">
+				<div class="categorias col-md-6 col-sm-12">
+					<h3>Categorias</h3>
+					<?php
+					$categories = get_the_category( $post->ID );
+					foreach ( $categories as $category ) {
+						echo '<span><a href="' . esc_url( get_category_link( $category->term_id ) )
+						. '">' . esc_html( $category->name ) . '</a></span>';
+					}
+					?>
+				</div>
+				<div class="tags col-md-6 col-sm-12">
+					<h3>Tags</h3>
+					<?php the_tags( '<span>', '</span><span>', '</span>' ); ?>
+				</div>
 			</div>
 		</div>
-		<!--		Sidebar Area
-				<div class="col-md-4">
-		<?php get_sidebar(); ?>	
-				</div>
-				Sidebar Area -->
 	</div>
 </div>
-
-
-	<?php get_footer(); ?>
+<?php get_footer(); ?>

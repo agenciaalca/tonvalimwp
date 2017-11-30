@@ -5,6 +5,11 @@
 .navbar-custom .navbar-nav>.active>a:hover{
     border-bottom: 3px solid #1da38a;
 }
+.widget a:active,
+.widget a:hover{
+    /*cor padrao do tema setado diretamente no atributo pois não aceita variavel */
+    border-bottom: 3px solid #1da38a;
+}
 
 .logo{
     background-image: url("../img/logocor1.png");
@@ -21,7 +26,12 @@ footer,
 .header-single{
     background-color: var(--cor);
 }
-
+h3,
+h4,
+h5,
+h6{
+    color: var(--cor);
+}
 .navbar-custom .navbar-nav > li > a,
 .navbar-custom .navbar-nav> .active > a,
 .navbar-custom .navbar-nav> li> a:hover,

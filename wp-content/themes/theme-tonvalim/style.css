@@ -14,6 +14,19 @@ Tags: responsive, blog, bootstrap
 }
 
 /* CSS GERAL */
+
+
+h3,
+h4,
+h5,
+h6{
+    color: var(--cor);
+}
+
+span > a{
+    color: #5d6567;
+}
+
 .container-fluid {
     padding: 0 ;
 }
@@ -68,8 +81,8 @@ Tags: responsive, blog, bootstrap
     color: white;
     text-align: center;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='199' viewBox='0 0 100 199'%3E%3Cg fill='%23ffffff' fill-opacity='0.14'%3E%3Cpath d='M0 199V0h1v1.99L100 199h-1.12L1 4.22V199H0zM100 2h-.12l-1-2H100v2z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
-    
-    
+
+
 }
 .carousel-inner{
     overflow: visible;
@@ -190,6 +203,7 @@ fieldset {
 
 /* FOOTER */
 footer{
+
     text-align: center;
     bottom:0!important;
     width:100%;
@@ -219,9 +233,8 @@ footer a:hover{
 /* ARQUIVO EXTERNO COMUM - POST E SINGLE */
 
 .content{    
-    margin-top: 50px;
-    margin-bottom: 50px;
-    height: 100%;
+    padding-top: 50px;
+    padding-bottom:  50px;
 }
 .header-page{
     background-color: var(--cor);
@@ -264,19 +277,143 @@ footer a:hover{
     letter-spacing: 1px;
     line-height: 20px;
 }
+.palavras-chaves{
+    padding-bottom: 100px;
+}
+
+.tags,
+.categorias{
+    padding: 0;
+}
+
+.tags h3,
+.categorias h3{
+    border-bottom: 2px solid #ccc;
+    width: 3%;
+}
+.tags span,
+.categorias span{
+    padding:  5px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: inline-block
+
+}
+
+
+/*navegaçao dos posts */
 .navegacao{
-    padding: 20px 0;
+    padding: 0;
 }
-.navegacao a{
+.tags a,
+.categorias a{
     color: #5d6567;
+
 }
+
+.tags a:hover,
+.categorias a:hover{
+    background-color: var(--cor);
+    text-decoration: none;
+    padding: 3px;
+    color: #fff;
+}
+
 .navegacao a:hover{
     color: var(--cor);
 }
 .navegacao span{
     color: var(--cor);
 }
+.navigation.post-navigation {
+    border-bottom: none;
+    border-top: none;
+}
 
+.nav-previous > a{
+    float: left;
+}
+
+.nav-next > a {
+    float: right;
+}
+.nav-previous span.meta-nav{
+    display: block;	
+}
+.nav-next span.meta-nav{
+    display: block;
+}
+
+
+/*--------------------------------------------------------------
+# Widgets
+--------------------------------------------------------------*/
+.widget-area{
+    font-size: 90%;
+
+}
+
+.widget-title {
+    color: var(--cor);
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 15px;
+    margin-top: 0;
+}
+
+div.widget-area section {
+    margin:15px 0;
+    padding-top: 15px;
+    /*border-top: 2px solid;*/
+}
+
+.widget ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.widget ul.children, .widget ul.sub-menu{
+    margin-left: 15px;
+}
+
+.widget ul li{
+    padding: 7px 0;
+    border-bottom: 1px solid #eee;
+}
+.widget a{
+    color: #5d6567;
+    text-decoration: none;
+}
+.widget a:active,
+.widget a:hover{
+    /*cor padrao do tema setado diretamente no atributo pois não aceita variavel */
+    border-bottom: 3px solid #0b59a3;
+}
+.widget_recent_entries img {
+    float: left;
+    height: 50px;
+    margin-right: 10px;
+    width: 70px;
+}
+
+.recent-posts-text span {
+    color: var(--cor);
+    display: block;
+    font-size: 12px;
+}
+
+.widget select {
+    width: 100%;
+}
+/* search form */
+.searchform{
+    padding: 15px 0 30px;
+}
+.searchform .input,
+.searchform .form-control{
+    padding: 0;
+}
 /*instagram*/
 .instafeed {
     width: 100%;
@@ -373,3 +510,45 @@ footer a:hover{
     }
 }
 
+/* paginação */
+ul.page-numbers li{float:left;margin:0 2px;}
+ul.page-numbers a, ul.page-numbers span {
+-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+box-shadow:inset 0px 1px 0px 0px #ffffff;
+background-color:transparent;
+-moz-border-radius:4px;
+-webkit-border-radius:4px;
+border-radius:4px;
+border:1px solid #dcdcdc;
+display:inline-block;
+color:#777777;
+font-family:arial;
+font-size:15px;
+font-weight:bold;
+padding:2px 6px;
+text-decoration:none;
+text-shadow:1px 1px 0px #ffffff;
+}
+ul.page-numbers a:active, ul.page-numbers span:active {
+position:relative;
+top:1px;
+}
+ul.page-numbers a:hover, ul.page-numbers span.current{
+-moz-box-shadow:inset 0px 1px 0px 0px #d9d9d9;
+-webkit-box-shadow:inset 0px 1px 0px 0px #d9d9d9;
+box-shadow:inset 0px 1px 0px 0px #d9d9d9;
+background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #d9d9d9), color-stop(1, #676767) );
+background:-moz-linear-gradient( center top, #d9d9d9 5%, #676767 100% );
+filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#d9d9d9', endColorstr='#676767');
+background-color:#d9d9d9;
+border:1px solid #676767;
+display:inline-block;
+color:#ffffff;
+font-family:arial;
+font-size:15px;
+font-weight:bold;
+text-decoration:none;
+text-shadow:1px 1px 0px #676767;
+}
+ul.page-numbers {text-align:center; padding: 20px 0;width: 100%}

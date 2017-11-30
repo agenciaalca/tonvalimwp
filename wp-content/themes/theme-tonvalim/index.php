@@ -76,6 +76,7 @@
 				</div>
 				<?php
 			endforeach;
+			paginacao_blog();
 		endif;
 		?>
 	</section>
@@ -138,4 +139,4 @@
     </div>
 </section>
 
-<?php get_footer();?>
+<?php get_footer(); ?>

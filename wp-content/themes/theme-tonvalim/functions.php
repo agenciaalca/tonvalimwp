@@ -36,15 +36,18 @@ function geraTitle() {
 /* * ************************************
  *  SIDEBAR
  * ************************************ */
-if ( function_exists( 'register_sidebar' ) ) {
+function sidebar_widgets_init() {
 	register_sidebar( array(
-		'name' => 'Sidebar',
-		'before_widget' => '<div class="widget">',
-		'after_widget' => '</div>',
-		'before_title' => '<h3>',
-		'after_title' => '</h3>',
+		'name'          => esc_html__( 'Sidebar' ),
+		'id'            => 'sidebar-1',
+		'description'   => esc_html__( 'Add widgets here.' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
 	) );
 }
+add_action( 'widgets_init', 'sidebar_widgets_init' );
 
 /* * ************************************
  * Registro Menu Personalizado
@@ -95,31 +98,65 @@ function wp_inclusao_scripts() {
 add_action( 'wp_enqueue_scripts', 'wp_inclusao_scripts' );
 
 /* -----------------------------------------------------
-  INSTAGRAM
+  PAGINAÇÃO
   -------------------------------------------------------- */
+if ( ! function_exists( 'paginacao_blog' ) ) :
 
-function fetchData( $url ) {
-	$ch = curl_init();
-	curl_setopt( $ch, CURLOPT_URL, $url );
-	curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1 );
-	curl_setopt( $ch, CURLOPT_TIMEOUT, 20 );
-	$result = curl_exec( $ch );
-	curl_close( $ch );
-	return $result;
-}
-
-function instagram() {
-	$result = fetchData( "https://api.instagram.com/v1/users/3056016000/media/recent/?access_token=3056016000.1677ed0.bd679286b53a4d73b8013c4ffdedba29" );
-	$result = json_decode( $result );
-	$count = 0;
-	if ( $result->data ) {
-		return $result->data;
-	} else {
-		return null;
+function paginacao_blog() {
+	// Don't print empty markup if there's only one page.
+	if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
+		return;
 	}
-}
 
-fetchData( "https://api.instagram.com/v1/users/3056016000/media/recent/?access_token=3056016000.1677ed0.bd679286b53a4d73b8013c4ffdedba29" );
+	$paged        = get_query_var( 'paged' ) ? intval( get_query_var( 'paged' ) ) : 1;
+	$pagenum_link = html_entity_decode( get_pagenum_link() );
+	$query_args   = array();
+	$url_parts    = explode( '?', $pagenum_link );
+
+	if ( isset( $url_parts[1] ) ) {
+		wp_parse_str( $url_parts[1], $query_args );
+	}
+
+	$pagenum_link = remove_query_arg( array_keys( $query_args ), $pagenum_link );
+	$pagenum_link = trailingslashit( $pagenum_link ) . '%_%';
+
+	$format  = $GLOBALS['wp_rewrite']->using_index_permalinks() && ! strpos( $pagenum_link, 'index.php' ) ? 'index.php/' : '';
+	$format .= $GLOBALS['wp_rewrite']->using_permalinks() ? user_trailingslashit( 'page/%#%', 'paged' ) : '?paged=%#%';
+
+	// Set up paginated links.
+	$links = paginate_links( array(
+		'base'     => $pagenum_link,
+		'format'   => $format,
+		'total'    => $GLOBALS['wp_query']->max_num_pages,
+		'current'  => $paged,
+		'mid_size' => 1,
+		'add_args' => array_map( 'urlencode', $query_args ),
+		'prev_text' => __( 'Previous' ),
+		'next_text' => __( 'Next'),
+		'type'      => 'array',
+	) );
+
+	if ( $links ) :
+
+		?>
+		<nav class="navigation paging-navigation text-center" role="navigation">
+			<h1 class="screen-reader-text"><?php _e( 'Posts navigation'); ?></h1>
+
+			<ul class=" ">
+				
+					<?php
+						foreach ( $links as $pgl ) {
+			        		echo "<li>$pgl</li>";
+				    	}
+				    ?>
+
+			</ul>
+
+		</nav><!-- .navigation -->
+		<?php
+	endif;
+	}
+endif;
 
 /* * ************************************
  *  Criando função do ACF Cunstom Type Field

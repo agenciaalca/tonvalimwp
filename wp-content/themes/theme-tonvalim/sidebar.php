@@ -1,3 +1,11 @@
-<div id="sidebar">
-    <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('Sidebar') ) : ?><?php endif; ?>
-</div>
+<?php
+
+	if ( ! is_active_sidebar( 'sidebar-1' ) ) {
+		return;
+	}
+	?>
+
+	<div id="secondary" class="widget-area" role="complementary">
+		<?php dynamic_sidebar( 'sidebar-1' ); ?>
+	</div><!-- #secondary -->
+</div><!--  row --

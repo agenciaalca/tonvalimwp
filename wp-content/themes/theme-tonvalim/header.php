@@ -10,12 +10,11 @@ error_reporting( E_ALL );
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-        <meta name="description" content="Tom Valim"/>
+        <meta name="description" content="Tom Valim Coach profissional"/>
         <meta name="keywords" content="coach"/>
         <meta name="author" content="Agência Alca"/>
-        <!--<link rel="shortcut icon" href="img/favicon.png">--> 
+		<title><?=bloginfo(); wp_title('-', true, 'left'); ?></title>
 
-		<title><?php geraTitle(); ?> </title>
 		<?php wp_head(); ?>
 
 
