@@ -102,23 +102,28 @@
                         <div>
                             <div class="form-group">
                                 <input type="text" class="form-control" name="nome" id="nome" value="" placeholder="nome*" required />
-                            </div>
+                            <div class="help-block with-errors"></div>
+							</div>
                         </div>
                         <div>
                             <div class="form-group">
-                                <input type="email" class="form-control" name="email" id="email" value="" placeholder="email*" required>
-                            </div>
+                                <input type="email" class="form-control" name="email" id="email" value="" placeholder="email*" 
+									   data-error="Por favor, informe um e-mail válido." required>
+                            <div class="help-block with-errors"></div>
+							</div>
                         </div>
                         <div>
                             <div class="form-group">
-                                <input type="number" class="form-control" name="telefone" id="telefone" value="" placeholder="telefone*" required>
-                            </div>
+                                <input type="text" class="form-control" name="telefone" id="telefone" value="" placeholder="telefone">
+                           <div class="help-block with-errors"></div>
+							</div>
                         </div>
                     </div>
                     <div class="col-md-6 ">
                         <div class="form-group">
                             <textarea class="form-control" id="exampleTextarea" rows="4" 
                                       id="message" name="mensagem" placeholder="mensagem*" required></textarea>
+									  <div class="help-block with-errors"></div>
                         </div>
                         <div class="botao ">
                             <button class="btn btn-default btn-block" id="submit" name="submit" type="submit" value="ENVIAR">Enviar Mensagem</button>

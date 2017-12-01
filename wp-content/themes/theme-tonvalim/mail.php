@@ -4,7 +4,11 @@ $msg = "";
 if (isset($_POST['submit']) && $_POST['submit'] == 'ENVIAR') {
     $nome = $_POST['nome'];
     $email = $_POST['email'];
-    $telefone = $_POST['telefone'];
+    if (empty($telefone)){
+        $telefone = 'Telefone não preenchido.';
+    }else{
+        $telefone = $_POST['telefone'];
+    }
     $mensagem = $_POST['mensagem'];
 
     $formcontent = "FORMULÁRIO DE CONTATO\n"
@@ -13,7 +17,7 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'ENVIAR') {
             . "\nTelefone: " . $telefone
             . "\nMensagem: " . $mensagem;
 
-    $recipient = "cristiane@agenciaalca.com";
+    $recipient = "contato@tonvalim.com.br";
     $subject = "Formulário de Contato - Ton Valim";
     $mailheader = "From: $email \r\n";
 

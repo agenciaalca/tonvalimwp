@@ -19,19 +19,6 @@ add_action( 'after_setup_theme', 'add_suport_theme' );
 //add_action( 'after_setup_theme', 'add_suport_theme' );
 
 
-
-/* * ************************************
- *  GERENCIA TITLE
- * ************************************ */
-function geraTitle() {
-
-	if ( is_home() ) {
-		echo bloginfo( 'name' );
-	} else {
-		echo bloginfo( 'name' ) . " | " . the_title();
-	}
-}
-
 /* * ************************************
  *  SIDEBAR
  * ************************************ */
@@ -141,7 +128,7 @@ if ( !function_exists( 'paginacao_blog' ) ) :
 
 		if ( $links ) :
 			?>
-			<div class="col-md-12">
+			<div class="col-md-12 col-sm-12 col-xs-12">
 				<nav class="navigation paging-navigation text-center" role="navigation">
 					<h1 class="screen-reader-text"><?php _e( '' ); ?></h1>
 
