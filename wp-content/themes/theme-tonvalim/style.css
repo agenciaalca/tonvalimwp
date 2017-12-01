@@ -343,7 +343,23 @@ footer a:hover{
 .nav-next span.meta-nav{
     display: block;
 }
-
+/* page navigation*/
+.pagination{
+    border-radius: 0;
+    padding: 20px 0 0;
+}
+.pagination > li > a{
+    color:rgba(0, 0, 0, 0.6);
+    font-family: lato;
+}
+.pagination > li > span {
+    color:rgba(255,255,255, 0.8);
+    background-color: var(--cor);
+}
+.pagination > li > a:hover{
+    color: #eee;
+    background-color: var(--cor);
+}
 
 /*--------------------------------------------------------------
 # Widgets
@@ -406,6 +422,7 @@ div.widget-area section {
 .widget select {
     width: 100%;
 }
+
 /* search form */
 .searchform{
     padding: 15px 0 30px;

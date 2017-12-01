@@ -1,5 +1,4 @@
 <?php
-
 /* * ************************************
  *  THEME SUPORT A THUMBNAILS
  * ************************************ */
@@ -20,33 +19,22 @@ add_action( 'after_setup_theme', 'add_suport_theme' );
 //add_action( 'after_setup_theme', 'add_suport_theme' );
 
 
-
-/* * ************************************
- *  GERENCIA TITLE
- * ************************************ */
-function geraTitle() {
-
-	if (is_home()) {
-		echo bloginfo( 'name' );
-	} else {
-		echo bloginfo( 'name' ) . " | " . the_title();
-	}
-}
-
 /* * ************************************
  *  SIDEBAR
  * ************************************ */
+
 function sidebar_widgets_init() {
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar' ),
-		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.' ),
+		'name' => esc_html__( 'Sidebar' ),
+		'id' => 'sidebar-1',
+		'description' => esc_html__( 'Add widgets here.' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h3 class="widget-title">',
-		'after_title'   => '</h3>',
+		'after_widget' => '</section>',
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>',
 	) );
 }
+
 add_action( 'widgets_init', 'sidebar_widgets_init' );
 
 /* * ************************************
@@ -100,61 +88,58 @@ add_action( 'wp_enqueue_scripts', 'wp_inclusao_scripts' );
 /* -----------------------------------------------------
   PAGINAÇÃO
   -------------------------------------------------------- */
-if ( ! function_exists( 'paginacao_blog' ) ) :
+if ( !function_exists( 'paginacao_blog' ) ) :
 
-function paginacao_blog() {
-	// Don't print empty markup if there's only one page.
-	if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
-		return;
-	}
+	function paginacao_blog() {
+		// Don't print empty markup if there's only one page.
+		if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
+			return;
+		}
 
-	$paged        = get_query_var( 'paged' ) ? intval( get_query_var( 'paged' ) ) : 1;
-	$pagenum_link = html_entity_decode( get_pagenum_link() );
-	$query_args   = array();
-	$url_parts    = explode( '?', $pagenum_link );
+		$paged = get_query_var( 'paged' ) ? intval( get_query_var( 'paged' ) ) : 1;
+		$pagenum_link = html_entity_decode( get_pagenum_link() );
+		$query_args = array();
+		$url_parts = explode( '?', $pagenum_link );
 
-	if ( isset( $url_parts[1] ) ) {
-		wp_parse_str( $url_parts[1], $query_args );
-	}
+		if ( isset( $url_parts[1] ) ) {
+			wp_parse_str( $url_parts[1], $query_args );
+		}
 
-	$pagenum_link = remove_query_arg( array_keys( $query_args ), $pagenum_link );
-	$pagenum_link = trailingslashit( $pagenum_link ) . '%_%';
+		$pagenum_link = remove_query_arg( array_keys( $query_args ), $pagenum_link );
+		$pagenum_link = trailingslashit( $pagenum_link ) . '%_%';
 
-	$format  = $GLOBALS['wp_rewrite']->using_index_permalinks() && ! strpos( $pagenum_link, 'index.php' ) ? 'index.php/' : '';
-	$format .= $GLOBALS['wp_rewrite']->using_permalinks() ? user_trailingslashit( 'page/%#%', 'paged' ) : '?paged=%#%';
+		$format = $GLOBALS['wp_rewrite']->using_index_permalinks() && !strpos( $pagenum_link, 'index.php' ) ? 'index.php/' : '';
+		$format .= $GLOBALS['wp_rewrite']->using_permalinks() ? user_trailingslashit( 'page/%#%', 'paged' ) : '?paged=%#%';
 
-	// Set up paginated links.
-	$links = paginate_links( array(
-		'base'     => $pagenum_link,
-		'format'   => $format,
-		'total'    => $GLOBALS['wp_query']->max_num_pages,
-		'current'  => $paged,
-		'mid_size' => 1,
-		'add_args' => array_map( 'urlencode', $query_args ),
-		'prev_text' => __( 'Previous' ),
-		'next_text' => __( 'Next'),
-		'type'      => 'array',
-	) );
+		// Set up paginated links.
+		$links = paginate_links( array(
+			'base' => $pagenum_link,
+			'format' => $format,
+			'total' => $GLOBALS['wp_query']->max_num_pages,
+			'current' => $paged,
+			'mid_size' => 1,
+			'add_args' => array_map( 'urlencode', $query_args ),
+			'prev_text' => __( 'Previous' ),
+			'next_text' => __( 'Next' ),
+			'type' => 'array',
+				) );
 
-	if ( $links ) :
-
-		?>
-		<nav class="navigation paging-navigation text-center" role="navigation">
-			<h1 class="screen-reader-text"><?php _e( 'Posts navigation'); ?></h1>
-
-			<ul class=" ">
-				
-					<?php
+		if ( $links ) :
+			?>
+			<div class="col-md-12">
+				<nav class="navigation paging-navigation text-center" role="navigation">
+					<h1 class="screen-reader-text"><?php _e( '' ); ?></h1>
+					<ul class="pagination">
+						<?php
 						foreach ( $links as $pgl ) {
-			        		echo "<li>$pgl</li>";
-				    	}
-				    ?>
-
-			</ul>
-
-		</nav><!-- .navigation -->
-		<?php
-	endif;
+							echo "<li>$pgl</li>";
+						}
+						?>
+					</ul>
+				</nav><!-- .navigation -->
+			</div>
+			<?php
+		endif;
 	}
 endif;
 
