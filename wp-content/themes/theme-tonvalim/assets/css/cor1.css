@@ -23,7 +23,9 @@
 .contato,
 footer,
 .header-page,
-.header-single{
+.header-single,
+.pagination > li > a:hover,
+.pagination > li > span{
     background-color: var(--cor);
 }
 h3,
