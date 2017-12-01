@@ -62,9 +62,10 @@
             <h1>ÚLTIMAS NOTÍCIAS</h1>
         </div>
 		<?php
-		$args = array( 'post_type' => 'post', 'showposts' => 6 );
-		$my_posts = get_posts( $args );
-		if ( $my_posts ) : foreach ( $my_posts as $post ) : setup_postdata( $post );
+		if ( have_posts() ) :
+
+				/* Start the Loop */
+				while ( have_posts() ) : the_post();
 				?>
 				<div id="post"  class="col-md-4 col-sm-6 col-xs-12">
 					<div class="single_post">
@@ -75,7 +76,7 @@
 					</div>
 				</div>
 				<?php
-			endforeach;
+			endwhile;
 			paginacao_blog();
 		endif;
 		?>

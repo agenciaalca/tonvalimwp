@@ -19,6 +19,19 @@ add_action( 'after_setup_theme', 'add_suport_theme' );
 //add_action( 'after_setup_theme', 'add_suport_theme' );
 
 
+
+/* * ************************************
+ *  GERENCIA TITLE
+ * ************************************ */
+function geraTitle() {
+
+	if ( is_home() ) {
+		echo bloginfo( 'name' );
+	} else {
+		echo bloginfo( 'name' ) . " | " . the_title();
+	}
+}
+
 /* * ************************************
  *  SIDEBAR
  * ************************************ */
@@ -97,6 +110,8 @@ if ( !function_exists( 'paginacao_blog' ) ) :
 		}
 
 		$paged = get_query_var( 'paged' ) ? intval( get_query_var( 'paged' ) ) : 1;
+
+
 		$pagenum_link = html_entity_decode( get_pagenum_link() );
 		$query_args = array();
 		$url_parts = explode( '?', $pagenum_link );
@@ -129,18 +144,23 @@ if ( !function_exists( 'paginacao_blog' ) ) :
 			<div class="col-md-12">
 				<nav class="navigation paging-navigation text-center" role="navigation">
 					<h1 class="screen-reader-text"><?php _e( '' ); ?></h1>
+
 					<ul class="pagination">
+
 						<?php
 						foreach ( $links as $pgl ) {
 							echo "<li>$pgl</li>";
 						}
 						?>
+
 					</ul>
+
 				</nav><!-- .navigation -->
 			</div>
 			<?php
 		endif;
 	}
+
 endif;
 
 /* * ************************************
