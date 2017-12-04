@@ -13,9 +13,10 @@ error_reporting( E_ALL );
         <meta name="description" content="Tom Valim Coach profissional"/>
         <meta name="keywords" content="coach"/>
         <meta name="author" content="Agência Alca"/>
-		<title><?=bloginfo(); wp_title('-', true, 'left'); ?></title>
+		<title><?= bloginfo();
+wp_title( '-', true, 'left' ); ?></title>
 
-		<?php wp_head(); ?>
+<?php wp_head(); ?>
 
 
 		<!-- Global site tag (gtag.js) - Google Analytics -->
@@ -46,6 +47,10 @@ error_reporting( E_ALL );
 						<a href="http://tonvalim.com.br"><div class="logo"></div>
 						</a>
 					</div>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="https://www.facebook.com/coachtonvalim" target="_blank">&nbsp;&nbsp;<i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+						<li><a href="https://www.instagram.com/coachtonvalim/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+					</ul>
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<?php require_once('assets/includes/wp_bootstrap_navwalker.php'); ?>
 					<?php
@@ -60,7 +65,7 @@ error_reporting( E_ALL );
 						'fallback_cb' => 'wp_bootstrap_navwalker::fallback',
 						'walker' => new wp_bootstrap_navwalker() )
 					);
-					?>
+					?>	
 				</div>
 			</nav>
 		</header>

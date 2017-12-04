@@ -10,13 +10,13 @@
 				<div class="container">
 					<div class="conteudo-slider col-md-5">
 						<fieldset>
-							<legend>PALESTRAS</legend> 
-							<p>2. Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de</p>
+							<legend>EBOOK</legend> 
+							<p>Tá cansado de colocar metas e não conseguir ver o resultado delas?</p>
 						</fieldset>
 						<br>
-						<p>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de</p>
+						<p>Baixe já o nosso e-book e entenda quais são os 5 obstáculos que estão atrapalhando você a conquistar os seus sonhos.</p>
 						<br>
-						<a href="#" class="btn btn-default">Saiba Mais</a>
+						<a href="#" class="btn btn-default">Acesse agora</a>
 					</div>
 					<div class="imagem-slider hidden-xs hidden-sm">
 						<img class="img-responsive" src="<?php echo get_template_directory_uri(); ?>/assets/img/img7.jpg" width="100%">
@@ -27,11 +27,11 @@
 				<div class="container">
 					<div class="conteudo-slider col-md-5">
 						<fieldset>
-							<legend>PALESTRAS</legend> 
-							<p>1. Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de</p>
+							<legend>COACH</legend> 
+							<p>Tenha resultados impactantes na sua vida !</p>
 						</fieldset>
 						<br>
-						<p>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de</p>
+						<p>Eu quero que você saia da sua zona de conforto. Eu quero que você busque o melhor de si, e transforme sonhos, em projetos concretos. Como? Através do Coaching e suas práticas. Clique e saiba como eu posso te ajudar a ter uma vida extraordinária.</p>
 						<br>
 						<a href="#" class="btn btn-default">Saiba Mais</a>
 					</div>
@@ -39,7 +39,24 @@
 						<img class="img-responsive" src="<?php echo get_template_directory_uri(); ?>/assets/img/img8.jpg" width="100%">
 					</div>
 				</div>
+			</div><div class="item active">
+				<div class="container">
+					<div class="conteudo-slider col-md-5">
+						<fieldset>
+							<legend>PALESTRAS</legend> 
+							<p>O Coaching não é só para a sua vida pessoal, ele também funciona para o seu negócio.</p>
+						</fieldset>
+						<br>
+						<p>Estar motivado por uma ideia, projeto ou organização, resgata em nós a paixão pelo que se faz. E se é isso que você e sua empresa precisam, deixa eu te dar uma mãozinha. Clique e conheça mais sobre como eu posso te ajudar.</p>
+						<br>
+						<a href="#" class="btn btn-default">Saiba Mais </a>
+					</div>
+					<div class="imagem-slider hidden-xs hidden-sm">
+						<img class="img-responsive" src="<?php echo get_template_directory_uri(); ?>/assets/img/img7.jpg" width="100%">
+					</div>
+				</div>
 			</div>
+			
 			<!-- Controls -->
 			<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
 				<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
