@@ -190,6 +190,9 @@ fieldset {
     color: white;
     border: 1px solid black;
 }
+.contato .btn-default:hover{
+    color: black;
+}
 .contato .informacoes-contato p {
     color: white;
     text-align: left;

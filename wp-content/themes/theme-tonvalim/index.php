@@ -28,7 +28,7 @@
 					<div class="conteudo-slider col-md-5">
 						<fieldset>
 							<legend>COACH</legend> 
-							<p>Tenha resultados impactantes na sua vida !</p>
+							<p>Tenha resultados impactantes na sua vida!</p>
 						</fieldset>
 						<br>
 						<p>Eu quero que você saia da sua zona de conforto. Eu quero que você busque o melhor de si, e transforme sonhos, em projetos concretos. Como? Através do Coaching e suas práticas. Clique e saiba como eu posso te ajudar a ter uma vida extraordinária.</p>
@@ -39,7 +39,7 @@
 						<img class="img-responsive" src="<?php echo get_template_directory_uri(); ?>/assets/img/img8.jpg" width="100%">
 					</div>
 				</div>
-			</div><div class="item active">
+			</div><div class="item">
 				<div class="container">
 					<div class="conteudo-slider col-md-5">
 						<fieldset>
