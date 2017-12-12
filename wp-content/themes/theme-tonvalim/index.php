@@ -16,7 +16,7 @@
 						<br>
 						<p>Baixe já o nosso e-book e entenda quais são os 5 obstáculos que estão atrapalhando você a conquistar os seus sonhos.</p>
 						<br>
-						<a href="#" class="btn btn-default">Acesse agora</a>
+						<a href="http://conteudo.tonvalim.com.br/conquistar-suas-metas" target="_blank" class="btn btn-default">Acesse agora</a>
 					</div>
 					<div class="imagem-slider hidden-xs hidden-sm">
 						<img class="img-responsive" src="<?php echo get_template_directory_uri(); ?>/assets/img/img7.jpg" width="100%">
@@ -33,7 +33,7 @@
 						<br>
 						<p>Eu quero que você saia da sua zona de conforto. Eu quero que você busque o melhor de si, e transforme sonhos, em projetos concretos. Como? Através do Coaching e suas práticas. Clique e saiba como eu posso te ajudar a ter uma vida extraordinária.</p>
 						<br>
-						<a href="#" class="btn btn-default">Saiba Mais</a>
+						<a href="http://tonvalim.com.br/o-coach/" class="btn btn-default">Saiba Mais</a>
 					</div>
 					<div class="imagem-slider hidden-xs hidden-sm">
 						<img class="img-responsive" src="<?php echo get_template_directory_uri(); ?>/assets/img/img8.jpg" width="100%">
@@ -49,7 +49,7 @@
 						<br>
 						<p>Estar motivado por uma ideia, projeto ou organização, resgata em nós a paixão pelo que se faz. E se é isso que você e sua empresa precisam, deixa eu te dar uma mãozinha. Clique e conheça mais sobre como eu posso te ajudar.</p>
 						<br>
-						<a href="#" class="btn btn-default">Saiba Mais </a>
+						<!--<a href="#" class="btn btn-default">Saiba Mais </a>-->
 					</div>
 					<div class="imagem-slider hidden-xs hidden-sm">
 						<img class="img-responsive" src="<?php echo get_template_directory_uri(); ?>/assets/img/img7.jpg" width="100%">
